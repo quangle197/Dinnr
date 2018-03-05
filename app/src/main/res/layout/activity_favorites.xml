@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.csulb.cecsymemeteam.dinnr.FavoritesActivity">
+
+    <ImageView
+        android:id="@+id/backgroundColor"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:srcCompat="@color/MintCream"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="2dp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageButton
+            android:id="@+id/FavoritesBtn"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_above="@+id/barDividerImg"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="15dp"
+            android:background="@drawable/circle_button"
+            android:onClick="goBack"
+            app:srcCompat="@android:drawable/ic_menu_manage"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="16dp" />
+
+        <TextView
+            android:id="@+id/favoritesTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginEnd="13dp"
+            android:layout_marginTop="11dp"
+            android:text="@string/favorites"
+            android:textColor="@android:color/black"
+            android:textSize="36sp"
+            android:textStyle="bold"
+            tools:layout_editor_absoluteX="218dp"
+            tools:layout_editor_absoluteY="16dp" />
+
+        <ImageView
+            android:id="@+id/barDividerImg"
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/favoritesTxt"
+            android:layout_marginTop="11dp"
+            android:scaleType="fitXY"
+            app:srcCompat="@color/common_google_signin_btn_text_light_pressed"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="72dp" />
+
+        <ScrollView
+            android:id="@+id/favoritsListContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/barDividerImg"
+            android:clipToPadding="false"
+            android:scrollbarStyle="insideInset"
+            tools:layout_editor_absoluteX="8dp"
+            tools:layout_editor_absoluteY="75dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/barDividerImg"
+                android:layout_alignStart="@+id/favoritesTxt"
+                android:orientation="vertical" />
+        </ScrollView>
+    </RelativeLayout>
+
+</android.support.constraint.ConstraintLayout>

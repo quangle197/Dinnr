@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.csulb.cecsymemeteam.dinnr.NewAccountActivity">
+
+    <ImageView
+        android:id="@+id/backgroundColor"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:srcCompat="@color/MintCream"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="2dp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/signUpTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="17dp"
+            android:text="@string/signup"
+            android:textColor="@android:color/black"
+            android:textSize="36sp"
+            android:textStyle="bold"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="16dp" />
+
+        <TextView
+            android:id="@+id/warningTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/signUpTxt"
+            android:layout_below="@+id/signUpTxt"
+            android:text="@string/required_warning"
+            android:textColor="@color/Crimson"
+            android:visibility="visible"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="65dp" />
+
+        <EditText
+            android:id="@+id/firstNameTxtField"
+            android:layout_width="149dp"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/warningTxt"
+            android:layout_below="@+id/warningTxt"
+            android:layout_marginTop="29dp"
+            android:ems="10"
+            android:hint="@string/first_name"
+            android:inputType="textPersonName"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="113dp" />
+
+        <EditText
+            android:id="@+id/lastNameTxtField"
+            android:layout_width="173dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/firstNameTxtField"
+            android:layout_alignBottom="@+id/firstNameTxtField"
+            android:layout_marginStart="16dp"
+            android:layout_toEndOf="@+id/firstNameTxtField"
+            android:ems="10"
+            android:hint="@string/last_name"
+            android:inputType="textPersonName"
+            tools:layout_editor_absoluteX="180dp"
+            tools:layout_editor_absoluteY="113dp" />
+
+        <EditText
+            android:id="@+id/emailAddressTxtField"
+            android:layout_width="337dp"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/firstNameTxtField"
+            android:layout_below="@+id/firstNameTxtField"
+            android:ems="10"
+            android:hint="@string/email"
+            android:inputType="textEmailAddress"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="159dp" />
+
+        <EditText
+            android:id="@+id/emailConfirmationTxtField"
+            android:layout_width="337dp"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/emailAddressTxtField"
+            android:layout_below="@+id/emailAddressTxtField"
+            android:ems="10"
+            android:hint="@string/confirm_email"
+            android:inputType="textEmailAddress"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="205dp" />
+
+        <EditText
+            android:id="@+id/usernameTxtField"
+            android:layout_width="235dp"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/emailConfirmationTxtField"
+            android:layout_below="@+id/emailConfirmationTxtField"
+            android:ems="10"
+            android:hint="@string/username"
+            android:inputType="text"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="251dp" />
+
+        <EditText
+            android:id="@+id/passwordTxtField"
+            android:layout_width="235dp"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/usernameTxtField"
+            android:layout_below="@+id/usernameTxtField"
+            android:ems="10"
+            android:hint="@string/password"
+            android:inputType="textPassword"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="297dp" />
+
+        <TextView
+            android:id="@+id/emailAddressStar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/firstNameTxtField"
+            android:layout_toStartOf="@+id/emailAddressTxtField"
+            android:text="*"
+            android:textColor="@color/Crimson"
+            tools:layout_editor_absoluteX="9dp"
+            tools:layout_editor_absoluteY="159dp" />
+
+        <TextView
+            android:id="@+id/emailConfirmationStar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/emailAddressStar"
+            android:layout_alignTop="@+id/emailConfirmationTxtField"
+            android:text="*"
+            android:textColor="@color/Crimson"
+            tools:layout_editor_absoluteX="265dp"
+            tools:layout_editor_absoluteY="41dp" />
+
+        <TextView
+            android:id="@+id/userNameStar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/emailConfirmationStar"
+            android:layout_below="@+id/emailConfirmationTxtField"
+            android:text="*"
+            android:textColor="@color/Crimson"
+            tools:layout_editor_absoluteX="9dp"
+            tools:layout_editor_absoluteY="251dp" />
+
+        <TextView
+            android:id="@+id/passwordStar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/usernameTxtField"
+            android:layout_toStartOf="@+id/passwordTxtField"
+            android:text="*"
+            android:textColor="@color/Crimson"
+            tools:layout_editor_absoluteX="9dp"
+            tools:layout_editor_absoluteY="297dp" />
+
+        <TextView
+            android:id="@+id/birthdayTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/passwordTxtField"
+            android:layout_below="@+id/passwordTxtField"
+            android:layout_marginTop="16dp"
+            android:text="@string/birthday"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="363dp" />
+
+        <Spinner
+            android:id="@+id/monthSpinner"
+            android:layout_width="87dp"
+            android:layout_height="19dp"
+            android:layout_alignStart="@+id/birthdayTxt"
+            android:layout_below="@+id/birthdayTxt"
+            android:popupBackground="@android:drawable/spinner_dropdown_background"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="388dp" />
+
+        <Spinner
+            android:id="@+id/daySpinner"
+            android:layout_width="71dp"
+            android:layout_height="19dp"
+            android:layout_alignTop="@+id/monthSpinner"
+            android:layout_toEndOf="@+id/monthSpinner"
+            android:popupBackground="@android:drawable/spinner_dropdown_background"
+            tools:layout_editor_absoluteX="102dp"
+            tools:layout_editor_absoluteY="388dp" />
+
+        <Spinner
+            android:id="@+id/yearSpinner"
+            android:layout_width="78dp"
+            android:layout_height="19dp"
+            android:layout_alignTop="@+id/daySpinner"
+            android:layout_toEndOf="@+id/daySpinner"
+            android:popupBackground="@android:drawable/spinner_dropdown_background"
+            tools:layout_editor_absoluteX="173dp"
+            tools:layout_editor_absoluteY="388dp" />
+
+        <RadioButton
+            android:id="@+id/femaleBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/monthSpinner"
+            android:layout_below="@+id/monthSpinner"
+            android:layout_marginTop="25dp"
+            android:text="@string/female"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="427dp" />
+
+        <RadioButton
+            android:id="@+id/maleBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/femaleBtn"
+            android:layout_alignBottom="@+id/femaleBtn"
+            android:layout_toEndOf="@+id/femaleBtn"
+            android:text="@string/male"
+            tools:layout_editor_absoluteX="94dp"
+            tools:layout_editor_absoluteY="427dp" />
+
+        <Button
+            android:id="@+id/confirmBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/lastNameTxtField"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="16dp"
+            android:onClick="createAccount"
+            android:text="@string/confirm"
+            tools:layout_editor_absoluteX="265dp"
+            tools:layout_editor_absoluteY="503dp" />
+
+        <Button
+            android:id="@+id/backBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/confirmBtn"
+            android:layout_alignBottom="@+id/confirmBtn"
+            android:layout_toEndOf="@+id/daySpinner"
+            android:onClick="goBack"
+            android:text="@string/back"
+            tools:layout_editor_absoluteX="173dp"
+            tools:layout_editor_absoluteY="503dp" />
+    </RelativeLayout>
+
+</android.support.constraint.ConstraintLayout>

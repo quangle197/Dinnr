@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.csulb.cecsymemeteam.dinnr.ProfileActivity">
+
+    <ImageView
+        android:id="@+id/backgroundColor"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:srcCompat="@color/MintCream"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="2dp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/restaurantImg"
+            android:layout_width="match_parent"
+            android:layout_height="239dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:scaleType="fitXY"
+            app:srcCompat="@mipmap/ic_launcher"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="16dp" />
+
+        <ImageView
+            android:id="@+id/star1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/restaurantImg"
+            android:layout_alignParentStart="true"
+            app:srcCompat="@android:drawable/btn_star"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="223dp" />
+
+        <ImageView
+            android:id="@+id/star2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/restaurantImg"
+            android:layout_toEndOf="@+id/star1"
+            app:srcCompat="@android:drawable/btn_star"
+            tools:layout_editor_absoluteX="48dp"
+            tools:layout_editor_absoluteY="223dp" />
+
+        <ImageView
+            android:id="@+id/star3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/restaurantImg"
+            android:layout_toEndOf="@+id/star2"
+            app:srcCompat="@android:drawable/btn_star"
+            tools:layout_editor_absoluteX="81dp"
+            tools:layout_editor_absoluteY="223dp" />
+
+        <ImageView
+            android:id="@+id/star4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/restaurantImg"
+            android:layout_toEndOf="@+id/star3"
+            app:srcCompat="@android:drawable/btn_star"
+            tools:layout_editor_absoluteX="112dp"
+            tools:layout_editor_absoluteY="223dp" />
+
+        <ImageView
+            android:id="@+id/star5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/restaurantImg"
+            android:layout_toEndOf="@+id/star4"
+            app:srcCompat="@android:drawable/btn_star"
+            tools:layout_editor_absoluteX="144dp"
+            tools:layout_editor_absoluteY="223dp" />
+
+        <TextView
+            android:id="@+id/restaurantDescriptionTxt"
+            android:layout_width="351dp"
+            android:layout_height="24dp"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/restaurantImg"
+            android:text="Name Of Restaurant + distance"
+            android:textAlignment="viewStart"
+            android:textSize="18sp"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="255dp" />
+
+        <TextView
+            android:id="@+id/addressTxt"
+            android:layout_width="351dp"
+            android:layout_height="24dp"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/restaurantDescriptionTxt"
+            android:text="Address"
+            android:textAlignment="viewStart"
+            android:textSize="18sp"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="279dp" />
+
+        <TextView
+            android:id="@+id/reviewsTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/addressTxt"
+            android:text="@string/reviews"
+            android:textSize="24sp"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="303dp" />
+
+        <TextView
+            android:id="@+id/writeReviewTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/reviewsTxt"
+            android:layout_toStartOf="@+id/divider"
+            android:clickable="true"
+            android:onClick="writeReview"
+            android:text="@string/write_review"
+            tools:layout_editor_absoluteX="143dp"
+            tools:layout_editor_absoluteY="316dp" />
+
+        <TextView
+            android:id="@+id/divider"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/writeReviewTxt"
+            android:layout_alignBottom="@+id/writeReviewTxt"
+            android:layout_toStartOf="@+id/viewMoreReviewsTxt"
+            android:paddingLeft="3dp"
+            android:paddingRight="3dp"
+            android:text="|"
+            android:textStyle="bold"
+            tools:layout_editor_absoluteX="235dp"
+            tools:layout_editor_absoluteY="316dp" />
+
+        <TextView
+            android:id="@+id/viewMoreReviewsTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/divider"
+            android:layout_alignBottom="@+id/divider"
+            android:layout_alignParentEnd="true"
+            android:clickable="true"
+            android:onClick="gotoMoreReviews"
+            android:text="@string/more_reviews"
+            tools:layout_editor_absoluteX="244dp"
+            tools:layout_editor_absoluteY="316dp" />
+
+        <Button
+            android:id="@+id/backBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/addressTxt"
+            android:layout_below="@+id/reviewsContainer"
+            android:layout_marginTop="14dp"
+            android:onClick="goBack"
+            android:text="@string/back"
+            tools:layout_editor_absoluteX="280dp"
+            tools:layout_editor_absoluteY="503dp" />
+
+        <ScrollView
+            android:id="@+id/reviewsContainer"
+            android:layout_width="match_parent"
+            android:layout_height="167dp"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@+id/writeReviewTxt"
+            tools:layout_editor_absoluteX="8dp"
+            tools:layout_editor_absoluteY="335dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+        </ScrollView>
+    </RelativeLayout>
+
+</android.support.constraint.ConstraintLayout>

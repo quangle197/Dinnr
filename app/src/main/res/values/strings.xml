@@ -1,0 +1,48 @@
+<resources>
+    <string name="app_name">Dinnr</string>
+    <string name="tour_start">Lets get the tour started!</string>
+    <string name="create_account">Create a new account?</string>
+    <string name="miles">miles away</string>
+    <string name="kilometers">kilometers away</string>
+    <string name="settings">Settings</string>
+    <string name="favorites">Favorites</string>
+    <string name="password">password</string>
+    <string name="signup">Sign Up</string>
+    <string name="confirm">Confirm</string>
+    <string name="back">Back</string>
+    <string name="reviews">Reviews</string>
+    <string name="more_reviews">View more reviews?</string>
+    <string name="write_review">Write a review!</string>
+    <string name="review_title">title of review</string>
+    <string name="max_chars">characters left.</string>
+
+    //Strings for signup
+    <string name="first_name">First name</string>
+    <string name="last_name">Last Name</string>
+    <string name="email">Email address</string>
+    <string name="birthday">Birthday</string>
+    <string name="username">Username</string>
+    <string name="month">Month</string>
+    <string name="day">Day</string>
+    <string name="year">Year</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="confirm_email">Re-enter your email address</string>
+    <string name="new_password">New password</string>
+    <string name="required_warning">* means that the field is required</string>
+
+    //Strings for login
+    <string name="forgot_info">Forgot your login?</string>
+    <string name="no_account">Don\'t have an account?</string>
+    <string name="login">Login</string>
+    <string name="send">Send</string>
+    <string name="forgot_username">Forgot username?</string>
+    <string name="forgot_password">Forgot password?</string>
+
+    //Legal strings
+    //TextViewName.setMovementMethod(LinkMovementMethod.getInstance()); required to make the link
+    clickable
+    <string name="policy">By starting the tour, you agree to our</string>
+    <string name="terms_of_service"> <font color="#000080"><a href="http://www.google.com">Terms of Service</a></font></string>
+
+</resources>

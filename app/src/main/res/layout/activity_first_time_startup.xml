@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.csulb.cecsymemeteam.dinnr.FirstTimeStartupActivity">
+
+    <ImageView
+        android:id="@+id/backgroundColor"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:srcCompat="@color/DinnrBlue"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="2dp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/startTourBtn"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="78dp"
+            android:adjustViewBounds="false"
+            android:background="@color/DinnrBlue"
+            android:cropToPadding="true"
+            android:scaleX=".7"
+            android:scaleY=".7"
+            app:srcCompat="@drawable/dinnr_title"
+            tools:layout_editor_absoluteX="41dp"
+            tools:layout_editor_absoluteY="157dp" />
+
+        <TextView
+            android:id="@+id/agreementTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="31dp"
+            android:text="@string/policy"
+            tools:layout_editor_absoluteX="79dp"
+            tools:layout_editor_absoluteY="513dp" />
+
+        <Button
+            android:id="@+id/startTourBtn"
+            android:layout_width="209dp"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/agreementTxt"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="170dp"
+            android:onClick="startTour"
+            android:text="@string/tour_start"
+            android:textAppearance="@style/TextAppearance.AppCompat"
+            android:textSize="14sp"
+            tools:layout_editor_absoluteX="88dp"
+            tools:layout_editor_absoluteY="286dp" />
+
+        <TextView
+            android:id="@+id/termsOfServiceTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="12dp"
+            android:text="@string/terms_of_service"
+            android:textColor="@color/DarkBlue" />
+
+    </RelativeLayout>
+
+</android.support.constraint.ConstraintLayout>

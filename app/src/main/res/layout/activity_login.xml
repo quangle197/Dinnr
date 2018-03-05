@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.csulb.cecsymemeteam.dinnr.LoginActivity">
+
+    <ImageView
+        android:id="@+id/backgroundColor"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:srcCompat="@color/DinnrBlue"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="2dp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/userTxtField"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="37dp"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/dinnr_title"
+            tools:layout_editor_absoluteX="41dp"
+            tools:layout_editor_absoluteY="125dp" />
+
+        <EditText
+            android:id="@+id/userTxtField"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:background="@android:drawable/editbox_background"
+            android:ems="10"
+            android:hint="@string/username"
+            android:inputType="textPersonName"
+            tools:layout_editor_absoluteX="85dp"
+            tools:layout_editor_absoluteY="244dp" />
+
+        <EditText
+            android:id="@+id/passwordTxtField"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/userTxtField"
+            android:layout_below="@+id/userTxtField"
+            android:background="@android:drawable/editbox_background"
+            android:ems="10"
+            android:hint="@string/password"
+            android:inputType="textPersonName"
+            tools:layout_editor_absoluteX="85dp"
+            tools:layout_editor_absoluteY="281dp" />
+
+        <TextView
+            android:id="@+id/noAccountTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/passwordTxtField"
+            android:layout_below="@+id/passwordTxtField"
+            android:clickable="true"
+            android:onClick="createAccount"
+            android:text="@string/no_account"
+            android:textAlignment="viewStart"
+            tools:layout_editor_absoluteX="156dp"
+            tools:layout_editor_absoluteY="318dp" />
+
+        <TextView
+            android:id="@+id/forgotLoginTxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/noAccountTxt"
+            android:layout_below="@+id/noAccountTxt"
+            android:clickable="true"
+            android:onClick="gotoForgottenLogin"
+            android:text="@string/forgot_info"
+            android:textAlignment="textEnd"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="463dp" />
+
+        <Button
+            android:id="@+id/loginBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/forgotLoginTxt"
+            android:layout_below="@+id/forgotLoginTxt"
+            android:layout_marginTop="17dp"
+            android:onClick="login"
+            android:text="@string/login"
+            tools:layout_editor_absoluteX="212dp"
+            tools:layout_editor_absoluteY="380dp" />
+
+        <Button
+            android:id="@+id/backBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/loginBtn"
+            android:layout_alignBottom="@+id/loginBtn"
+            android:layout_toStartOf="@+id/loginBtn"
+            android:onClick="goBack"
+            android:text="@string/back"
+            tools:layout_editor_absoluteX="124dp"
+            tools:layout_editor_absoluteY="380dp" />
+
+        <TextView
+            android:id="@+id/warningTxt"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/loginBtn"
+            android:text="TextView"
+            android:textColor="@color/Crimson"
+            android:textSize="14sp"
+            android:visibility="invisible"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="440dp" />
+
+    </RelativeLayout>
+
+</android.support.constraint.ConstraintLayout>

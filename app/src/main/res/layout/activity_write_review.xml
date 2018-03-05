@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.csulb.cecsymemeteam.dinnr.WriteReviewActivity">
+
+    <ImageView
+        android:id="@+id/backgroundColor"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:srcCompat="@color/MintCream"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="2dp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <EditText
+            android:id="@+id/titleTxtField"
+            android:layout_width="351dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:ems="10"
+            android:hint="@string/review_title"
+            android:inputType="textPersonName"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="16dp" />
+
+        <EditText
+            android:id="@+id/reviewTxtField"
+            android:layout_width="352dp"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/titleTxtField"
+            android:layout_below="@+id/titleTxtField"
+            android:ems="10"
+            android:inputType="textMultiLine"
+            android:textSize="12sp"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="62dp" />
+
+        <TextView
+            android:id="@+id/maxCharactersTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/titleTxtField"
+            android:layout_below="@+id/reviewTxtField"
+            android:text="@string/max_chars" />
+
+        <Button
+            android:id="@+id/sendBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/reviewTxtField"
+            android:layout_below="@+id/reviewTxtField"
+            android:onClick="sendReview"
+            android:text="@string/send"
+            tools:layout_editor_absoluteX="278dp"
+            tools:layout_editor_absoluteY="501dp" />
+
+        <Button
+            android:id="@+id/backBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/sendBtn"
+            android:layout_alignBottom="@+id/sendBtn"
+            android:layout_toStartOf="@+id/sendBtn"
+            android:onClick="goBack"
+            android:text="@string/back"
+            tools:layout_editor_absoluteX="188dp"
+            tools:layout_editor_absoluteY="501dp" />
+    </RelativeLayout>
+
+</android.support.constraint.ConstraintLayout>
