@@ -75,7 +75,7 @@
                 android:layout_height="22dp"
                 android:layout_alignTop="@+id/profilePlaque"
                 android:layout_centerHorizontal="true"
-                android:text="Name Of Restaurant + distance"
+                android:text="McDonald's"
                 android:textAlignment="center"
                 android:textSize="18sp"
                 android:visibility="visible"

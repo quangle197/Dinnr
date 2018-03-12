@@ -25,11 +25,24 @@
             android:layout_above="@+id/barDividerImg"
             android:layout_alignParentStart="true"
             android:layout_marginStart="15dp"
-            android:background="@drawable/circle_button"
+            android:background="@android:color/transparent"
             android:onClick="goBack"
-            app:srcCompat="@android:drawable/ic_menu_manage"
+            app:srcCompat="@drawable/heart"
+            android:scaleType="fitCenter"
             tools:layout_editor_absoluteX="16dp"
             tools:layout_editor_absoluteY="16dp" />
+
+        <Button
+            android:id="@+id/backBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignStart="@+id/FavoritesBtn"
+            android:layout_marginBottom="18dp"
+            android:onClick="goBack"
+            android:text="@string/back"
+            tools:layout_editor_absoluteX="278dp"
+            tools:layout_editor_absoluteY="501dp" />
 
         <TextView
             android:id="@+id/favoritesTxt"
