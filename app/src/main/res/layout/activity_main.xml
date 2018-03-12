@@ -30,17 +30,17 @@
             android:orientation="horizontal">
 
             <ImageButton
-                android:id="@+id/settingsBtn3"
+                android:id="@+id/favoritesBtn3"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
-                android:background="@drawable/circle_button"
-                android:contentDescription="TODO"
+                android:background="@android:color/transparent"
                 android:onClick="gotoSettings"
                 android:visibility="visible"
-                app:srcCompat="@android:drawable/ic_menu_manage"
-                tools:layout_editor_absoluteX="16dp"
+                app:srcCompat="@drawable/menu_icon"
+                android:scaleType="fitCenter"
+                tools:layout_editor_absoluteX="319dp"
                 tools:layout_editor_absoluteY="16dp" />
 
             <Space
@@ -54,10 +54,11 @@
                 android:layout_height="48dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="10dp"
-                android:background="@drawable/circle_button"
+                android:background="@android:color/transparent"
                 android:onClick="gotoFavorites"
                 android:visibility="visible"
-                app:srcCompat="@android:drawable/ic_menu_manage"
+                app:srcCompat="@drawable/heart"
+                android:scaleType="fitCenter"
                 tools:layout_editor_absoluteX="319dp"
                 tools:layout_editor_absoluteY="16dp" />
         </LinearLayout>
@@ -74,7 +75,7 @@
                 android:layout_height="22dp"
                 android:layout_alignTop="@+id/profilePlaque"
                 android:layout_centerHorizontal="true"
-                android:text="Name Of Restaurant + distance"
+                android:text="McDonald's"
                 android:textAlignment="center"
                 android:textSize="18sp"
                 android:visibility="visible"
@@ -90,7 +91,8 @@
                 android:onClick="gotoProfile"
                 android:scaleType="fitXY"
                 android:visibility="visible"
-                app:srcCompat="@mipmap/ic_launcher"
+
+                app:srcCompat="@drawable/mcdonalds"
                 tools:layout_editor_absoluteX="20dp"
                 tools:layout_editor_absoluteY="114dp" />
 
@@ -172,12 +174,13 @@
                 android:id="@+id/dislikeBtn3"
                 android:layout_width="64dp"
                 android:layout_height="64dp"
-                android:background="@drawable/circle_button"
+                android:background="@android:color/transparent"
                 android:contentDescription="TODO"
                 android:visibility="visible"
-                app:srcCompat="@android:drawable/ic_menu_manage"
+                app:srcCompat="@drawable/check_mark"
+                android:scaleType="fitCenter"
                 tools:layout_editor_absoluteX="63dp"
-                tools:layout_editor_absoluteY="457dp" />
+                tools:layout_editor_absoluteY="457dp"  />
 
             <Space
                 android:layout_width="wrap_content"
@@ -188,11 +191,12 @@
                 android:id="@+id/likeBtn3"
                 android:layout_width="64dp"
                 android:layout_height="64dp"
-                android:background="@drawable/circle_button"
+                android:background="@android:color/transparent"
                 android:visibility="visible"
-                app:srcCompat="@android:drawable/ic_menu_manage"
+                app:srcCompat="@drawable/cross_mark"
+                android:scaleType="fitCenter"
                 tools:layout_editor_absoluteX="260dp"
-                tools:layout_editor_absoluteY="457dp" />
+                tools:layout_editor_absoluteY="457dp"  />
 
             <Space
                 android:layout_width="wrap_content"

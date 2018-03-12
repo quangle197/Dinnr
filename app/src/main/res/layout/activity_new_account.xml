@@ -178,6 +178,20 @@
             tools:layout_editor_absoluteX="16dp"
             tools:layout_editor_absoluteY="363dp" />
 
+        <TextView
+            android:id="@+id/enderTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/femaleBtn"
+            android:layout_below="@+id/monthSpinner"
+            android:layout_marginTop="22dp"
+            android:text="@string/gender"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="363dp" />
+
         <Spinner
             android:id="@+id/monthSpinner"
             android:layout_width="87dp"
@@ -213,8 +227,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignStart="@+id/monthSpinner"
-            android:layout_below="@+id/monthSpinner"
-            android:layout_marginTop="25dp"
+            android:layout_below="@+id/enderTxt"
             android:text="@string/female"
             tools:layout_editor_absoluteX="16dp"
             tools:layout_editor_absoluteY="427dp" />
@@ -229,6 +242,8 @@
             android:text="@string/male"
             tools:layout_editor_absoluteX="94dp"
             tools:layout_editor_absoluteY="427dp" />
+
+
 
         <Button
             android:id="@+id/confirmBtn"
@@ -253,6 +268,16 @@
             android:text="@string/back"
             tools:layout_editor_absoluteX="173dp"
             tools:layout_editor_absoluteY="503dp" />
+
+        <RadioButton
+            android:id="@+id/noAnsButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/maleBtn"
+            android:layout_alignBottom="@+id/maleBtn"
+            android:layout_toEndOf="@+id/maleBtn"
+            android:text="Prefer not to answer" />
+
     </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>

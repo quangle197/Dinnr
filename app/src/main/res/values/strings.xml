@@ -44,5 +44,6 @@
     clickable
     <string name="policy">By starting the tour, you agree to our</string>
     <string name="terms_of_service"> <font color="#000080"><a href="http://www.google.com">Terms of Service</a></font></string>
+    <string name="gender">Gender</string>
 
 </resources>
