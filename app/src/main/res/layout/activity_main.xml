@@ -54,10 +54,11 @@
                 android:layout_height="48dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="10dp"
-                android:background="@drawable/circle_button"
+                android:background="@android:color/transparent"
                 android:onClick="gotoFavorites"
                 android:visibility="visible"
-                app:srcCompat="@android:drawable/ic_menu_manage"
+                app:srcCompat="@drawable/heart"
+                android:scaleType="fitCenter"
                 tools:layout_editor_absoluteX="319dp"
                 tools:layout_editor_absoluteY="16dp" />
         </LinearLayout>
