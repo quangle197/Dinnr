@@ -30,17 +30,17 @@
             android:orientation="horizontal">
 
             <ImageButton
-                android:id="@+id/settingsBtn3"
+                android:id="@+id/favoritesBtn3"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
-                android:background="@drawable/circle_button"
-                android:contentDescription="TODO"
+                android:background="@android:color/transparent"
                 android:onClick="gotoSettings"
                 android:visibility="visible"
-                app:srcCompat="@android:drawable/ic_menu_manage"
-                tools:layout_editor_absoluteX="16dp"
+                app:srcCompat="@drawable/menu_icon"
+                android:scaleType="fitCenter"
+                tools:layout_editor_absoluteX="319dp"
                 tools:layout_editor_absoluteY="16dp" />
 
             <Space
