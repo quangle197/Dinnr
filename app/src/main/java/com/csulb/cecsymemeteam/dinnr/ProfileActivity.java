@@ -28,7 +28,7 @@ public class ProfileActivity extends AppCompatActivity {
         //Grabs 7 reviews (from a database or whatever) and creates it on screen so that the user can view them
         for(int i = 0; i < 7; i++){
             reviews.add(new Review());
-            scrollView.addView(reviews.get(i).generateReview(this, numOfReviews), new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+            scrollView.addView(ReviewFactory.generateReview(this, reviews.get(i),numOfReviews), new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
             numOfReviews++;
         }
     }
