@@ -61,7 +61,7 @@
     <color name="BurlyWood">#DEB887</color>
     <color name="Plum">#DDA0DD</color>
     <color name="Gainsboro">#DCDCDC</color>
-    <color name="Crimson">#96dc143c</color>
+    <color name="Crimson">#96d54b66</color>
     <color name="PaleVioletRed">#DB7093</color>
     <color name="Goldenrod">#DAA520</color>
     <color name="Orchid">#DA70D6</color>
@@ -113,7 +113,7 @@
     <color name="SlateBlue">#6A5ACD</color>
     <color name="DimGray">#696969</color>
     <color name="MediumAquamarine">#66CDAA</color>
-    <color name="CornflowerBlue">#6495ED</color>
+    <color name="CornflowerBlue">#6495ed</color>
     <color name="CadetBlue">#5F9EA0</color>
     <color name="DarkOliveGreen">#556B2F</color>
     <color name="Indigo">#4B0082</color>
@@ -146,4 +146,5 @@
     <color name="DarkBlue">#00008B</color>
     <color name="Navy">#000080</color>
     <color name="Black">#000000</color>
+    <color name="reviewsBackground">#d1d0d0</color>
 </resources>
