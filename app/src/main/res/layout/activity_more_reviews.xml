@@ -35,8 +35,8 @@
             android:id="@+id/filterBySpinner"
             android:layout_width="259dp"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/reviewsTxt"
-            android:layout_toEndOf="@+id/reviewsTxt"
+            android:layout_above="@+id/reviewListContainer"
+            android:layout_alignParentEnd="true"
             tools:layout_editor_absoluteX="109dp"
             tools:layout_editor_absoluteY="24dp" />
 
@@ -65,7 +65,7 @@
 
         <ScrollView
             android:id="@+id/reviewListContainer"
-            android:layout_width="352dp"
+            android:layout_width="match_parent"
             android:layout_height="450dp"
             android:layout_alignStart="@+id/reviewsTxt"
             android:layout_below="@+id/reviewsTxt"
@@ -73,6 +73,7 @@
             tools:layout_editor_absoluteY="48dp">
 
             <LinearLayout
+                android:id="@+id/reviewsList"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical" />
