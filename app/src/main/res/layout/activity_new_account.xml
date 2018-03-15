@@ -270,7 +270,7 @@
             tools:layout_editor_absoluteY="503dp" />
 
         <RadioButton
-            android:id="@+id/noAnsButton"
+            android:id="@+id/noAnsBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignBaseline="@+id/maleBtn"
