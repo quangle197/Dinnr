@@ -7,7 +7,7 @@
     tools:context="com.csulb.cecsymemeteam.dinnr.ForgottenLoginActivity">
 
     <ImageView
-        android:id="@+id/backgroundColor"
+        android:id="@+id/forgottenLogin_bgColor"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:srcCompat="@color/DinnrBlue"
@@ -19,25 +19,27 @@
         android:layout_height="match_parent">
 
         <ImageView
-            android:id="@+id/title"
+            android:id="@+id/forgottenLogin_titleImg"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
+            android:layout_above="@+id/forgottenLogin_userTxtField"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="125dp"
+            android:layout_marginBottom="21dp"
+            android:adjustViewBounds="false"
             android:background="@color/DinnrBlue"
-            android:scaleType="fitXY"
+            android:cropToPadding="true"
+            android:scaleX=".7"
+            android:scaleY=".7"
             app:srcCompat="@drawable/dinnr_title"
-            tools:layout_editor_absoluteX="101dp"
-            tools:layout_editor_absoluteY="127dp" />
+            tools:layout_editor_absoluteX="41dp"
+            tools:layout_editor_absoluteY="157dp" />
 
         <EditText
-            android:id="@+id/userTxtField"
+            android:id="@+id/forgottenLogin_userTxtField"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/title"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="23dp"
+            android:layout_centerVertical="true"
             android:background="@android:drawable/editbox_background"
             android:ems="10"
             android:hint="@string/email"
@@ -46,31 +48,31 @@
             tools:layout_editor_absoluteY="234dp" />
 
         <TextView
-            android:id="@+id/forgotUsernameTxt"
+            android:id="@+id/forgottenLogin_forgotUsernameTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/userTxtField"
-            android:layout_below="@+id/userTxtField"
+            android:layout_alignStart="@+id/forgottenLogin_userTxtField"
+            android:layout_below="@+id/forgottenLogin_userTxtField"
             android:text="@string/forgot_username"
             tools:layout_editor_absoluteX="85dp"
             tools:layout_editor_absoluteY="274dp" />
 
         <Button
-            android:id="@+id/sendUsernameBtn"
+            android:id="@+id/forgottenLogin_sendUsernameBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignEnd="@+id/userTxtField"
-            android:layout_below="@+id/userTxtField"
+            android:layout_alignEnd="@+id/forgottenLogin_userTxtField"
+            android:layout_below="@+id/forgottenLogin_userTxtField"
             android:text="@string/send"
             tools:layout_editor_absoluteX="212dp"
             tools:layout_editor_absoluteY="271dp" />
 
         <EditText
-            android:id="@+id/passwordTxtField"
+            android:id="@+id/forgottenLogin_passwordTxtField"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignEnd="@+id/sendUsernameBtn"
-            android:layout_below="@+id/sendUsernameBtn"
+            android:layout_alignEnd="@+id/forgottenLogin_sendUsernameBtn"
+            android:layout_below="@+id/forgottenLogin_sendUsernameBtn"
             android:background="@android:drawable/editbox_background"
             android:ems="10"
             android:hint="@string/username"
@@ -79,27 +81,27 @@
             tools:layout_editor_absoluteY="319dp" />
 
         <TextView
-            android:id="@+id/forgotPasswordTxt"
+            android:id="@+id/forgottenLogin_forgotPasswordTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignEnd="@+id/forgotUsernameTxt"
-            android:layout_below="@+id/passwordTxtField"
+            android:layout_alignEnd="@+id/forgottenLogin_forgotUsernameTxt"
+            android:layout_below="@+id/forgottenLogin_passwordTxtField"
             android:text="@string/forgot_password"
             tools:layout_editor_absoluteX="85dp"
             tools:layout_editor_absoluteY="356dp" />
 
         <Button
-            android:id="@+id/sendPasswordBtn"
+            android:id="@+id/forgottenLogin_sendPasswordBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignEnd="@+id/passwordTxtField"
-            android:layout_below="@+id/passwordTxtField"
+            android:layout_alignEnd="@+id/forgottenLogin_passwordTxtField"
+            android:layout_below="@+id/forgottenLogin_passwordTxtField"
             android:text="@string/send"
             tools:layout_editor_absoluteX="212dp"
             tools:layout_editor_absoluteY="351dp" />
 
         <Button
-            android:id="@+id/backBtn"
+            android:id="@+id/forgottenLogin_backBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"

@@ -8,7 +8,7 @@
     tools:context="com.csulb.cecsymemeteam.dinnr.MainActivity">
 
     <ImageView
-        android:id="@+id/backgroundColor2"
+        android:id="@+id/main_bgColor"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:contentDescription="TODO"
@@ -30,16 +30,16 @@
             android:orientation="horizontal">
 
             <ImageButton
-                android:id="@+id/favoritesBtn3"
+                android:id="@+id/main_settingsBtn"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
                 android:background="@android:color/transparent"
                 android:onClick="gotoSettings"
+                android:scaleType="fitCenter"
                 android:visibility="visible"
                 app:srcCompat="@drawable/menu_icon"
-                android:scaleType="fitCenter"
                 tools:layout_editor_absoluteX="319dp"
                 tools:layout_editor_absoluteY="16dp" />
 
@@ -48,8 +48,9 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1" />
 
-            <ImageButton
-                android:id="@+id/favoritesBtn3"
+
+            <ImageView
+                android:id="@+id/main_favoritesBtn"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:layout_marginRight="10dp"
@@ -64,13 +65,14 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/main_restaurantPlaque"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@android:drawable/alert_light_frame"
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/restaurantDescriptionTxt3"
+                android:id="@+id/main_restaurantDescriptionTxt"
                 android:layout_width="match_parent"
                 android:layout_height="22dp"
                 android:layout_alignTop="@+id/profilePlaque"
@@ -83,10 +85,10 @@
                 tools:layout_editor_absoluteY="92dp" />
 
             <ImageButton
-                android:id="@+id/profileBtn3"
+                android:id="@+id/main_profileBtn"
                 android:layout_width="match_parent"
                 android:layout_height="253dp"
-                android:layout_below="@+id/restaurantDescriptionTxt"
+                android:layout_below="@+id/main_restaurantDescriptionTxt"
                 android:layout_centerHorizontal="true"
                 android:onClick="gotoProfile"
                 android:scaleType="fitXY"
@@ -103,7 +105,7 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:id="@+id/star10"
+                    android:id="@+id/main_star1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:visibility="visible"
@@ -112,44 +114,44 @@
                     tools:layout_editor_absoluteY="371dp" />
 
                 <ImageView
-                    android:id="@+id/star11"
+                    android:id="@+id/main_star2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/profileBtn"
-                    android:layout_toEndOf="@+id/star1"
+                    android:layout_below="@+id/main_profileBtn"
+                    android:layout_toEndOf="@+id/main_star1"
                     android:visibility="visible"
                     app:srcCompat="@android:drawable/btn_star"
                     tools:layout_editor_absoluteX="63dp"
                     tools:layout_editor_absoluteY="371dp" />
 
                 <ImageView
-                    android:id="@+id/star12"
+                    android:id="@+id/main_star3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/profileBtn"
-                    android:layout_toEndOf="@+id/star2"
+                    android:layout_below="@+id/main_profileBtn"
+                    android:layout_toEndOf="@+id/main_star2"
                     android:visibility="visible"
                     app:srcCompat="@android:drawable/btn_star"
                     tools:layout_editor_absoluteX="94dp"
                     tools:layout_editor_absoluteY="371dp" />
 
                 <ImageView
-                    android:id="@+id/star13"
+                    android:id="@+id/main_star4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/profileBtn"
-                    android:layout_toEndOf="@+id/star3"
+                    android:layout_below="@+id/main_profileBtn"
+                    android:layout_toEndOf="@+id/main_star3"
                     android:visibility="visible"
                     app:srcCompat="@android:drawable/btn_star"
                     tools:layout_editor_absoluteX="126dp"
                     tools:layout_editor_absoluteY="371dp" />
 
                 <ImageView
-                    android:id="@+id/star14"
+                    android:id="@+id/main_star5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/profileBtn"
-                    android:layout_toEndOf="@+id/star4"
+                    android:layout_below="@+id/main_profileBtn"
+                    android:layout_toEndOf="@+id/main_star4"
                     android:visibility="visible"
                     app:srcCompat="@android:drawable/btn_star"
                     tools:layout_editor_absoluteX="158dp"
@@ -171,16 +173,16 @@
                 android:layout_weight="1" />
 
             <ImageButton
-                android:id="@+id/dislikeBtn3"
+                android:id="@+id/main_leftBtn"
                 android:layout_width="64dp"
                 android:layout_height="64dp"
                 android:background="@android:color/transparent"
                 android:contentDescription="TODO"
+                android:scaleType="fitCenter"
                 android:visibility="visible"
                 app:srcCompat="@drawable/check_mark"
-                android:scaleType="fitCenter"
                 tools:layout_editor_absoluteX="63dp"
-                tools:layout_editor_absoluteY="457dp"  />
+                tools:layout_editor_absoluteY="457dp" />
 
             <Space
                 android:layout_width="wrap_content"
@@ -188,15 +190,15 @@
                 android:layout_weight="1" />
 
             <ImageButton
-                android:id="@+id/likeBtn3"
+                android:id="@+id/main_rightBtn"
                 android:layout_width="64dp"
                 android:layout_height="64dp"
                 android:background="@android:color/transparent"
+                android:scaleType="fitCenter"
                 android:visibility="visible"
                 app:srcCompat="@drawable/cross_mark"
-                android:scaleType="fitCenter"
                 tools:layout_editor_absoluteX="260dp"
-                tools:layout_editor_absoluteY="457dp"  />
+                tools:layout_editor_absoluteY="457dp" />
 
             <Space
                 android:layout_width="wrap_content"

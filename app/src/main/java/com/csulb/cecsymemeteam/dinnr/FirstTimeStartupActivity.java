@@ -15,7 +15,7 @@ public class FirstTimeStartupActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_first_time_startup);
 
-        TextView termsOfService = findViewById(R.id.termsOfServiceTxt);
+        TextView termsOfService = findViewById(R.id.firstTimeStartUp_termsOfServiceTxt);
         termsOfService.setMovementMethod(LinkMovementMethod.getInstance());
     }
 
