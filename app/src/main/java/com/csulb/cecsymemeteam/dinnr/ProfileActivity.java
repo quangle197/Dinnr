@@ -23,7 +23,7 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
-        LinearLayout scrollView = findViewById(R.id.reviewsLinearLayout);
+        LinearLayout scrollView = findViewById(R.id.profile_reviewsContainer);
 
         //Grabs 7 reviews (from a database or whatever) and creates it on screen so that the user can view them
         for(int i = 0; i < 7; i++){

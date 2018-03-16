@@ -7,7 +7,7 @@
     tools:context="com.csulb.cecsymemeteam.dinnr.MoreReviewsActivity">
 
     <ImageView
-        android:id="@+id/backgroundColor"
+        android:id="@+id/moreReviews_bgColor"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:srcCompat="@color/MintCream"
@@ -19,7 +19,7 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/reviewsTxt"
+            android:id="@+id/moreReviews_reviewsTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
@@ -32,20 +32,20 @@
             tools:layout_editor_absoluteY="16dp" />
 
         <Spinner
-            android:id="@+id/filterBySpinner"
+            android:id="@+id/moreReviews_filterSpinner"
             android:layout_width="259dp"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/reviewListContainer"
-            android:layout_alignParentEnd="true"
+            android:layout_above="@+id/scrollView2"
+            android:layout_alignEnd="@+id/scrollView2"
             tools:layout_editor_absoluteX="109dp"
             tools:layout_editor_absoluteY="24dp" />
 
         <TextView
-            android:id="@+id/writeReviewTxt"
+            android:id="@+id/moreReviews_writeReviewTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/reviewListContainer"
-            android:layout_below="@+id/reviewListContainer"
+            android:layout_alignStart="@+id/scrollView2"
+            android:layout_below="@+id/scrollView2"
             android:clickable="true"
             android:onClick="writeReview"
             android:text="@string/write_review"
@@ -53,27 +53,31 @@
             tools:layout_editor_absoluteY="498dp" />
 
         <Button
-            android:id="@+id/backBtn"
+            android:id="@+id/moreReviews_backBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignEnd="@+id/reviewListContainer"
-            android:layout_below="@+id/reviewListContainer"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginBottom="15dp"
+            android:layout_marginRight="15dp"
             android:onClick="goBack"
             android:text="@string/back"
             tools:layout_editor_absoluteX="278dp"
             tools:layout_editor_absoluteY="501dp" />
 
         <ScrollView
-            android:id="@+id/reviewListContainer"
+            android:id="@+id/scrollView2"
             android:layout_width="match_parent"
             android:layout_height="450dp"
-            android:layout_alignStart="@+id/reviewsTxt"
-            android:layout_below="@+id/reviewsTxt"
+            android:layout_alignStart="@+id/moreReviews_reviewsTxt"
+            android:layout_below="@+id/moreReviews_reviewsTxt"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="10dp"
             tools:layout_editor_absoluteX="16dp"
             tools:layout_editor_absoluteY="48dp">
 
             <LinearLayout
-                android:id="@+id/reviewsList"
+                android:id="@+id/moreReviews_reviewsList"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical" />

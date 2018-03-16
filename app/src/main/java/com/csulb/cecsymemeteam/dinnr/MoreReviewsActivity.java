@@ -16,7 +16,7 @@ public class MoreReviewsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_more_reviews);
 
-        LinearLayout scrollView = findViewById(R.id.reviewsList);
+        LinearLayout scrollView = findViewById(R.id.moreReviews_reviewsList);
 
         //Grabs 10 reviews (from a database or whatever) and creates it on screen so that the user can view them
         for(int i = 0; i < 10; i++){
