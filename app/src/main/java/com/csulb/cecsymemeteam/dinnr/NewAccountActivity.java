@@ -12,9 +12,9 @@ public class NewAccountActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_account);
-        RadioButton female = (RadioButton) findViewById(R.id.femaleBtn);
-        RadioButton male = (RadioButton) findViewById(R.id.maleBtn);
-        RadioButton notAns = (RadioButton) findViewById(R.id.noAnsBtn);
+        RadioButton female = (RadioButton) findViewById(R.id.newAccount_femaleBtn);
+        RadioButton male = (RadioButton) findViewById(R.id.newAccount_maleBtn);
+        RadioButton notAns = (RadioButton) findViewById(R.id.newAccount_noAnsBtn);
 
     }
 
