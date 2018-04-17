@@ -84,6 +84,19 @@
             tools:layout_editor_absoluteX="16dp"
             tools:layout_editor_absoluteY="145dp" />
 
+
+        <Button
+            android:id="@+id/settings_backBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/settings_settingsBtn"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="18dp"
+            android:onClick="goBack"
+            android:text="@string/back"
+            tools:layout_editor_absoluteX="278dp"
+            tools:layout_editor_absoluteY="501dp" />
+
     </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>
