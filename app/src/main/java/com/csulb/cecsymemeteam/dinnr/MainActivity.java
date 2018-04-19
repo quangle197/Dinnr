@@ -56,10 +56,10 @@ public class MainActivity extends AppCompatActivity {
             imgBtn.setImageResource(R.drawable.mcdonalds);
         }
         else if(index == 1){
-            imgBtn.setImageResource(R.drawable.tacoBell);
+            imgBtn.setImageResource(R.drawable.tacobell);
         }
         else{
-            imgBtn.setImageResource(R.drawable.innNOut);
+            imgBtn.setImageResource(R.drawable.innnout);
         }
         TextView restaurantDescription = (TextView) findViewById(R.id.main_restaurantDescriptionTxt);
         restaurantDescription.setText(restaurants[index].getName() + " " + restaurants[index].getDistance());
