@@ -192,7 +192,7 @@
                 android:contentDescription="TODO"
                 android:scaleType="fitCenter"
                 android:visibility="visible"
-                app:srcCompat="@drawable/check_mark"
+                app:srcCompat="@drawable/cross_mark"
                 tools:layout_editor_absoluteX="63dp"
                 tools:layout_editor_absoluteY="457dp" />
 
@@ -208,7 +208,7 @@
                 android:background="@android:color/transparent"
                 android:scaleType="fitCenter"
                 android:visibility="visible"
-                app:srcCompat="@drawable/cross_mark"
+                app:srcCompat="@drawable/check_mark"
                 tools:layout_editor_absoluteX="260dp"
                 tools:layout_editor_absoluteY="457dp" />
 
