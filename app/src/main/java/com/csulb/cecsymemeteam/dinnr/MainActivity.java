@@ -20,6 +20,7 @@ import android.view.GestureDetector.SimpleOnGestureListener;
 import android.view.MotionEvent;
 import android.view.View.OnTouchListener;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -102,6 +103,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     public void changeProfile(int index, RestaurantProfile[] restaurants){
+        ImageView []setStar = {findViewById(R.id.main_star1),findViewById(R.id.main_star2),findViewById(R.id.main_star3),
+                findViewById(R.id.main_star4),findViewById(R.id.main_star5)};
         ImageButton imgBtn = (ImageButton) findViewById(R.id.main_profileBtn);
         if(index == 0){
             imgBtn.setImageResource(R.drawable.mcdonalds);
@@ -114,6 +117,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
         TextView restaurantDescription = (TextView) findViewById(R.id.main_restaurantDescriptionTxt);
         restaurantDescription.setText(restaurants[index].getName() + " " + restaurants[index].getDistance());
+        for(int i = 0;i < restaurants[index].getStarRating();i++)
+        {
+            setStar[i].setImageResource(android.R.drawable.btn_star_big_on);
+
+        }
+        if(restaurants[index].getStarRating() <5)
+        {
+            for(int j=4;j>=restaurants[index].getStarRating();j--)
+            {
+                setStar[j].setImageResource(android.R.drawable.btn_star_big_off);
+            }
+        }
+       // ImageView star = (ImageView)findViewById(R.id.main_star1);
+       // star.setImageResource(android.R.drawable.btn_star_big_on);
+
     }
 
     public void gotoFavorites(View v){
