@@ -23,11 +23,11 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
+import android.widget.Button;
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mToggle;
-
+    public static int index =0;
     public RestaurantProfile[] restaurants = new RestaurantProfile[3];
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         linearLayout.setOnTouchListener(new GestureListener(MainActivity.this)
         {
-            int index = 0;
+
             @Override
             public void onSwipeRight()
             {
@@ -59,11 +59,30 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
             public void onSwipeLeft()
             {
-                index = Math.abs(index - 1) % 3;
+                index = Math.abs(index + 2) % 3;
                 changeProfile(index, restaurants);
             }
 
         });
+        ImageButton like =(ImageButton) findViewById(R.id.main_rightBtn);
+        like.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                index = (index + 1) % 3;
+                changeProfile(index, restaurants);
+            }
+        });
+        ImageButton dislike =(ImageButton) findViewById(R.id.main_leftBtn);
+        dislike.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                index = (index + 2) % 3;
+                changeProfile(index, restaurants);
+            }
+        });
+
     }
 
     @Override
@@ -113,15 +132,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
 
-        if(id == R.id.login)
-        {
-           // Toast.makeText(this,"login",Toast.LENGTH_SHORT.show());
+        if (id == R.id.login) {
+            // Toast.makeText(this,"login",Toast.LENGTH_SHORT.show());
             startActivity(new Intent(this, LoginActivity.class));
         }
-        if(id == R.id.newAccount)
-        {
+        if (id == R.id.newAccount) {
             // Toast.makeText(this,"login",Toast.LENGTH_SHORT.show());
             startActivity(new Intent(this, NewAccountActivity.class));
+        }
+        if (id == R.id.Favorite)
+        {
+            startActivity(new Intent(this, FavoritesActivity.class));
         }
         return false;
     }

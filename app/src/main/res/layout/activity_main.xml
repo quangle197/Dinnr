@@ -8,12 +8,6 @@
     android:id="@+id/drawer"
     tools:context="com.csulb.cecsymemeteam.dinnr.MainActivity">
 
-
-
-
-
-
-
     <ImageView
         android:id="@+id/main_bgColor"
         android:layout_width="match_parent"
