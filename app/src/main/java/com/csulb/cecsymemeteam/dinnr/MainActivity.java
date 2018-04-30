@@ -2,6 +2,7 @@ package com.csulb.cecsymemeteam.dinnr;
 
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.provider.ContactsContract;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -18,17 +19,17 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import java.sql.DatabaseMetaData;
+
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mToggle;
-    public static int index =0;
-    public RestaurantProfile[] restaurants = new RestaurantProfile[3];
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        DataStorage.generateRestaurants(DataStorage.listOfRestaurants);
         LinearLayout linearLayout = (LinearLayout) findViewById(R.id.main_restaurantPlaque);
-        generateRestaurants(restaurants);
         mDrawerLayout =(DrawerLayout) findViewById(R.id.drawer);
         mToggle = new ActionBarDrawerToggle(this, mDrawerLayout,R.string.open, R.string.close);
         mDrawerLayout.addDrawerListener(mToggle);
@@ -51,13 +52,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onSwipeRight()
             {
-                index = (index + 1) % 3;
-                changeProfile(index, restaurants);
+                DataStorage.setRestaurantIndex((DataStorage.restaurantIndex + 1) % DataStorage.listOfRestaurants.size());
+                changeProfile(DataStorage.restaurantIndex);
             }
             public void onSwipeLeft()
             {
-                index = Math.abs(index + 2) % 3;
-                changeProfile(index, restaurants);
+                DataStorage.setRestaurantIndex((DataStorage.restaurantIndex + DataStorage.listOfRestaurants.size() - 1) % DataStorage.listOfRestaurants.size());
+                changeProfile(DataStorage.restaurantIndex);
             }
 
         });
@@ -73,8 +74,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             @Override
             public void onClick(View view) {
-                index = (index + 1) % 3;
-                changeProfile(index, restaurants);
+                DataStorage.setRestaurantIndex((DataStorage.restaurantIndex + 1) % DataStorage.listOfRestaurants.size());
+                changeProfile(DataStorage.restaurantIndex);
             }
         });
         //////////////////////////////////////////////////////////////////////////
@@ -89,8 +90,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             @Override
             public void onClick(View view) {
-                index = (index + 2) % 3;
-                changeProfile(index, restaurants);
+                DataStorage.setRestaurantIndex((DataStorage.restaurantIndex + DataStorage.listOfRestaurants.size() - 1) % DataStorage.listOfRestaurants.size());
+                changeProfile(DataStorage.restaurantIndex);
             }
         });
         //////////////////////////////////////////////////////////////////////////
@@ -105,12 +106,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onSwipeRight()
             {
-                index = (index + 1) % 3;
-                changeProfile(index, restaurants);
+                DataStorage.setRestaurantIndex((DataStorage.restaurantIndex + 1) % DataStorage.listOfRestaurants.size());
+                changeProfile(DataStorage.restaurantIndex);
             }
             public void onSwipeLeft() {
-                index = Math.abs(index + 2) % 3;
-                changeProfile(index, restaurants);
+                DataStorage.setRestaurantIndex((DataStorage.restaurantIndex + DataStorage.listOfRestaurants.size() - 1) % DataStorage.listOfRestaurants.size());
+                changeProfile(DataStorage.restaurantIndex);
             }
 
             @Override
@@ -133,32 +134,26 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return super.onOptionsItemSelected(item);
     }
 
-    private void generateRestaurants(RestaurantProfile[] restaurants){
-        restaurants[0] = new RestaurantProfile("Mcdonalds", "0.5 Miles", 4, R.drawable.mcdonalds);
-        restaurants[1] = new RestaurantProfile("Taco Bell", "2.0 Miles", 3, R.drawable.innnout);
-        restaurants[2] = new RestaurantProfile("Inn N Out", "0.2 Miles", 5, R.drawable.tacobell);
-    }
-
-    public void changeProfile(int index, RestaurantProfile[] restaurants){
+    public void changeProfile(int index){
         ImageView []setStar = {findViewById(R.id.main_star1),findViewById(R.id.main_star2),findViewById(R.id.main_star3),
                 findViewById(R.id.main_star4),findViewById(R.id.main_star5)};
         ImageButton imgBtn = (ImageButton) findViewById(R.id.main_profileBtn);
-        imgBtn.setImageResource(restaurants[index].getRefToImg());
+        imgBtn.setImageResource(DataStorage.getListOfRestaurants().get(DataStorage.restaurantIndex).getRefToImg());
         TextView temp = (TextView) findViewById(R.id.main_restaurantName);
-        temp.setText(restaurants[index].getName());
+        temp.setText(DataStorage.getListOfRestaurants().get(DataStorage.restaurantIndex).getName());
 
         temp = findViewById(R.id.main_restaurantDistance);
-        temp.setText(restaurants[index].getDistance());
+        temp.setText(DataStorage.getListOfRestaurants().get(DataStorage.restaurantIndex).getDistance());
 
 
-        for(int i = 0;i < restaurants[index].getStarRating();i++)
+        for(int i = 0;i < DataStorage.getListOfRestaurants().get(DataStorage.restaurantIndex).getStarRating();i++)
         {
             setStar[i].setImageResource(android.R.drawable.btn_star_big_on);
 
         }
-        if(restaurants[index].getStarRating() <5)
+        if(DataStorage.getListOfRestaurants().get(DataStorage.restaurantIndex).getStarRating() <5)
         {
-            for(int j=4;j>=restaurants[index].getStarRating();j--)
+            for(int j=4;j>=DataStorage.getListOfRestaurants().get(DataStorage.restaurantIndex).getStarRating();j--)
             {
                 setStar[j].setImageResource(android.R.drawable.btn_star_big_off);
             }
