@@ -12,13 +12,13 @@ public class RestaurantProfile{
     public String name;
     public String distance;
     public int starRating;
-    public Drawable img;
+    public int refToImg;
 
-    public RestaurantProfile(String name, String distance, int starRating){
+    public RestaurantProfile(String name, String distance, int starRating, int refToImg){
         this.name = name;
         this.distance = distance;
         this.starRating = starRating;
-        this.img = img;
+        this.refToImg = refToImg;
     }
 
     public String getName() {
@@ -45,11 +45,11 @@ public class RestaurantProfile{
         this.starRating = starRating;
     }
 
-    public Drawable getImg() {
-        return img;
+    public int getRefToImg() {
+        return refToImg;
     }
 
-    public void setImg(Drawable img) {
-        this.img = img;
+    public void setRefToImg(int refToImg) {
+        this.refToImg = refToImg;
     }
 }

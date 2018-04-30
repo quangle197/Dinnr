@@ -1,6 +1,7 @@
 package com.csulb.cecsymemeteam.dinnr;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -133,24 +134,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     private void generateRestaurants(RestaurantProfile[] restaurants){
-        restaurants[0] = new RestaurantProfile("Mcdonalds", "0.5 Miles", 4);
-        restaurants[1] = new RestaurantProfile("Taco Bell", "2.0 Miles", 3);
-        restaurants[2] = new RestaurantProfile("Inn N Out", "0.2 Miles", 5);
+        restaurants[0] = new RestaurantProfile("Mcdonalds", "0.5 Miles", 4, R.drawable.mcdonalds);
+        restaurants[1] = new RestaurantProfile("Taco Bell", "2.0 Miles", 3, R.drawable.innnout);
+        restaurants[2] = new RestaurantProfile("Inn N Out", "0.2 Miles", 5, R.drawable.tacobell);
     }
 
     public void changeProfile(int index, RestaurantProfile[] restaurants){
         ImageView []setStar = {findViewById(R.id.main_star1),findViewById(R.id.main_star2),findViewById(R.id.main_star3),
                 findViewById(R.id.main_star4),findViewById(R.id.main_star5)};
         ImageButton imgBtn = (ImageButton) findViewById(R.id.main_profileBtn);
-        if(index == 0){
-            imgBtn.setImageResource(R.drawable.mcdonalds);
-        }
-        else if(index == 1){
-            imgBtn.setImageResource(R.drawable.tacobell);
-        }
-        else{
-            imgBtn.setImageResource(R.drawable.innnout);
-        }
+        imgBtn.setImageResource(restaurants[index].getRefToImg());
         TextView temp = (TextView) findViewById(R.id.main_restaurantName);
         temp.setText(restaurants[index].getName());
 
