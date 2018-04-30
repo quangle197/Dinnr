@@ -1,8 +1,6 @@
 package com.csulb.cecsymemeteam.dinnr;
 
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
-import android.support.annotation.MainThread;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -14,17 +12,11 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
-import android.content.Context;
-import android.view.GestureDetector;
-import android.view.GestureDetector.SimpleOnGestureListener;
-import android.view.MotionEvent;
-import android.view.View.OnTouchListener;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
-import android.widget.Button;
+
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mToggle;
@@ -159,8 +151,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         else{
             imgBtn.setImageResource(R.drawable.innnout);
         }
-        TextView restaurantDescription = (TextView) findViewById(R.id.main_restaurantDescriptionTxt);
-        restaurantDescription.setText(restaurants[index].getName() + " " + restaurants[index].getDistance());
+        TextView temp = (TextView) findViewById(R.id.main_restaurantName);
+        temp.setText(restaurants[index].getName());
+
+        temp = findViewById(R.id.main_restaurantDistance);
+        temp.setText(restaurants[index].getDistance());
+
+
         for(int i = 0;i < restaurants[index].getStarRating();i++)
         {
             setStar[i].setImageResource(android.R.drawable.btn_star_big_on);
