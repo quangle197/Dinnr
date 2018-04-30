@@ -33,19 +33,6 @@
             tools:layout_editor_absoluteY="16dp" />
 
 
-        <Button
-            android:id="@+id/favorites_backBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignStart="@+id/favorites_favoritesBtn"
-            android:layout_marginBottom="18dp"
-            android:onClick="goBack"
-            android:text="@string/back"
-            tools:layout_editor_absoluteX="278dp"
-            tools:layout_editor_absoluteY="501dp" />
-
-
         <TextView
             android:id="@+id/favorites_favoritesTxt"
             android:layout_width="wrap_content"

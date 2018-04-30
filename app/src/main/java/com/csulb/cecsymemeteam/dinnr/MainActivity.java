@@ -182,10 +182,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         startActivity(new Intent(this, FavoritesActivity.class));
     }
 
-    public void gotoSettings(View v){
-        startActivity(new Intent(this, SettingsActivity.class));
-    }
-
     public void gotoProfile(View v){
         startActivity(new Intent(this, ProfileActivity.class));
     }
