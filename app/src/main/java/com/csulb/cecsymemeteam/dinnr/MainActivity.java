@@ -83,7 +83,30 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 changeProfile(index, restaurants);
             }
         });
+        //////////////////////////////////////////////////////////////////////////
+        //                      Profile Button Listeners                        //
+        //////////////////////////////////////////////////////////////////////////
+        ImageButton profile = (ImageButton) findViewById(R.id.main_profileBtn);
+        profile.setOnTouchListener(new GestureListener(MainActivity.this){
+            @Override
+            public void onSwipeRight()
+            {
+                index = (index + 1) % 3;
+                changeProfile(index, restaurants);
+            }
+            public void onSwipeLeft() {
+                index = Math.abs(index + 2) % 3;
+                changeProfile(index, restaurants);
+            }
 
+            @Override
+            public void onTap() {
+                gotoProfile(findViewById(R.id.main_profileBtn));
+            }
+        });
+        //////////////////////////////////////////////////////////////////////////
+        //                   end of Profile Button Listeners                    //
+        //////////////////////////////////////////////////////////////////////////
     }
 
     @Override

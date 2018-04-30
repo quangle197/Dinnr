@@ -93,10 +93,9 @@
                 android:layout_height="253dp"
                 android:layout_below="@+id/main_restaurantDescriptionTxt"
                 android:layout_centerHorizontal="true"
-                android:onClick="gotoProfile"
+
                 android:scaleType="fitXY"
                 android:visibility="visible"
-
                 app:srcCompat="@drawable/mcdonalds"
                 tools:layout_editor_absoluteX="20dp"
                 tools:layout_editor_absoluteY="114dp" />

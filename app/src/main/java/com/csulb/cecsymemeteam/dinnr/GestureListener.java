@@ -62,6 +62,12 @@ public class GestureListener implements OnTouchListener
             }
             return result;
         }
+
+        @Override
+        public boolean onSingleTapUp(MotionEvent e) {
+            onTap();
+            return super.onSingleTapUp(e);
+        }
     }
 
     public void onSwipeRight() {
@@ -74,5 +80,8 @@ public class GestureListener implements OnTouchListener
     }
 
     public void onSwipeBottom() {
+    }
+
+    public void onTap(){
     }
 }
