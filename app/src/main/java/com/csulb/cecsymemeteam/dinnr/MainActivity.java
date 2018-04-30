@@ -49,6 +49,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        //////////////////////////////////////////////////////////////////////////
+        //                      profile Plaque Listeners                        //
+        //////////////////////////////////////////////////////////////////////////
         linearLayout.setOnTouchListener(new GestureListener(MainActivity.this)
         {
 
@@ -65,6 +68,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
 
         });
+        //////////////////////////////////////////////////////////////////////////
+        //                      profile Plaque Listeners                        //
+        //////////////////////////////////////////////////////////////////////////
+
+        //////////////////////////////////////////////////////////////////////////
+        //                        like Button Listeners                         //
+        //////////////////////////////////////////////////////////////////////////
         ImageButton like =(ImageButton) findViewById(R.id.main_rightBtn);
         like.setOnClickListener(new View.OnClickListener() {
 
@@ -74,6 +84,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 changeProfile(index, restaurants);
             }
         });
+        //////////////////////////////////////////////////////////////////////////
+        //                        like Button Listeners                         //
+        //////////////////////////////////////////////////////////////////////////
+
+        //////////////////////////////////////////////////////////////////////////
+        //                      dislike Button Listeners                        //
+        //////////////////////////////////////////////////////////////////////////
         ImageButton dislike =(ImageButton) findViewById(R.id.main_leftBtn);
         dislike.setOnClickListener(new View.OnClickListener() {
 
@@ -83,6 +100,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 changeProfile(index, restaurants);
             }
         });
+        //////////////////////////////////////////////////////////////////////////
+        //                      dislike Button Listeners                        //
+        //////////////////////////////////////////////////////////////////////////
+
         //////////////////////////////////////////////////////////////////////////
         //                      Profile Button Listeners                        //
         //////////////////////////////////////////////////////////////////////////
@@ -105,7 +126,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         });
         //////////////////////////////////////////////////////////////////////////
-        //                   end of Profile Button Listeners                    //
+        //                      Profile Button Listeners                        //
         //////////////////////////////////////////////////////////////////////////
     }
 
