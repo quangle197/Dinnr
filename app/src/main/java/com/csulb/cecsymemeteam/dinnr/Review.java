@@ -19,13 +19,15 @@ import java.util.Calendar;
 public class Review{
     private String profileName;
     private String profileLink;
+    private String titleOfComment;
     private String comment;
     private int starRating;
     private String dateCreated;
 
-    public Review(String profileName, String profileLink, String comment, int starRating){
+    public Review(String profileName, String profileLink, String titleOfComment, String comment, int starRating){
         this.profileName = profileName;
         this.profileLink = profileLink;
+        this.titleOfComment = titleOfComment;
         this.comment = comment;
         this.starRating = starRating;
         /**
@@ -36,7 +38,7 @@ public class Review{
     }
 
     public Review(){
-        this("PickleRick69", "https://www.google.com", "My teacher said to my I'm a failure, that I'll never amount to anything. I scoffed at him. Shocked, my teacher asked what's so funny, my future is on the line. \"Well...you see professor\" I say as the teacher prepares to laugh at my answer, rebuttal at hand. \"I watch Rick and Morty.\" The class is shocked, they merely watch pleb shows like the big bang theory to feign intelligence, not grasping the humor. \"...how? I can't even understand it's sheer nuance and subtlety.\" \"Well you see...WUBBA LUBBA DUB DUB!\" One line student laughs in the back, I turn to see a who this fellow genius is. It's none other than Albert Einstein", 4);
+        this("PickleRick69", "https://www.google.com", "Creative title :)","My teacher said to my I'm a failure, that I'll never amount to anything. I scoffed at him. Shocked, my teacher asked what's so funny, my future is on the line. \"Well...you see professor\" I say as the teacher prepares to laugh at my answer, rebuttal at hand. \"I watch Rick and Morty.\" The class is shocked, they merely watch pleb shows like the big bang theory to feign intelligence, not grasping the humor. \"...how? I can't even understand it's sheer nuance and subtlety.\" \"Well you see...WUBBA LUBBA DUB DUB!\" One line student laughs in the back, I turn to see a who this fellow genius is. It's none other than Albert Einstein", 4);
     }
 
     public String getProfileName() {
@@ -62,5 +64,13 @@ public class Review{
     public void editReview(String newComment, int newStarRating){
         comment = newComment;
         starRating = newStarRating;
+    }
+
+    public String getTitleOfComment() {
+        return titleOfComment;
+    }
+
+    public void setTitleOfComment(String titleOfComment) {
+        this.titleOfComment = titleOfComment;
     }
 }
