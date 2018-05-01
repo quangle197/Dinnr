@@ -67,6 +67,17 @@ public class RestaurantProfile{
         this.listOfReviews = listOfReviews;
     }
 
+
+    public void addReview(Review r)
+    {
+        listOfReviews.add(r);
+    }
+
+    public void addReview(Review r, int index)
+    {
+        listOfReviews.add(index, r);
+    }
+
     public void generateGenericReviews(){
         listOfReviews.add(new Review());
         listOfReviews.add(new Review());

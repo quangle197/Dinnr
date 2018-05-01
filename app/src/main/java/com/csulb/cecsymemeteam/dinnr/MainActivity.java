@@ -12,6 +12,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
@@ -43,22 +44,38 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-
+        Menu nav_menu = navigationView.getMenu();
         //////////////////////////////////////////////////////////////////////////
         //                      profile Plaque Listeners                        //
         //////////////////////////////////////////////////////////////////////////
+
+        if(DataStorage.isLoggedIn()) {
+            nav_menu.findItem(R.id.Account).setVisible(true);
+            nav_menu.findItem(R.id.newAccount).setVisible(false);
+            nav_menu.findItem(R.id.login).setVisible(false);
+        }
         linearLayout.setOnTouchListener(new GestureListener(MainActivity.this)
         {
             @Override
             public void onSwipeRight()
             {
-                DataStorage.setRestaurantIndex((DataStorage.restaurantIndex + 1) % DataStorage.listOfRestaurants.size());
-                changeProfile(DataStorage.restaurantIndex);
+                if(DataStorage.listOfRestaurants.size() > 0){
+                    DataStorage.listOfRestaurants.remove(0);
+                    changeProfile(DataStorage.restaurantIndex);
+                }
+                else{
+                    noMoreRestaurants();
+                }
             }
             public void onSwipeLeft()
             {
-                DataStorage.setRestaurantIndex((DataStorage.restaurantIndex + DataStorage.listOfRestaurants.size() - 1) % DataStorage.listOfRestaurants.size());
-                changeProfile(DataStorage.restaurantIndex);
+                if(DataStorage.listOfRestaurants.size() > 0) {
+                    DataStorage.listOfRestaurants.remove(0);
+                    changeProfile(DataStorage.restaurantIndex);
+                }
+                else{
+                    noMoreRestaurants();
+                }
             }
         });
         //////////////////////////////////////////////////////////////////////////
@@ -73,8 +90,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             @Override
             public void onClick(View view) {
-                DataStorage.setRestaurantIndex((DataStorage.restaurantIndex + 1) % DataStorage.listOfRestaurants.size());
-                changeProfile(DataStorage.restaurantIndex);
+                if(DataStorage.listOfRestaurants.size() > 1) {
+                    DataStorage.listOfRestaurants.remove(0);
+                    changeProfile(DataStorage.restaurantIndex);
+                }
+                else{
+                    noMoreRestaurants();
+                }
             }
         });
         //////////////////////////////////////////////////////////////////////////
@@ -89,8 +111,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             @Override
             public void onClick(View view) {
-                DataStorage.setRestaurantIndex((DataStorage.restaurantIndex + DataStorage.listOfRestaurants.size() - 1) % DataStorage.listOfRestaurants.size());
-                changeProfile(DataStorage.restaurantIndex);
+                if(DataStorage.listOfRestaurants.size() > 1) {
+                    DataStorage.listOfRestaurants.remove(0);
+                    changeProfile(DataStorage.restaurantIndex);
+                }
+                else{
+                    noMoreRestaurants();
+                }
             }
         });
         //////////////////////////////////////////////////////////////////////////
@@ -105,17 +132,29 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onSwipeRight()
             {
-                DataStorage.setRestaurantIndex((DataStorage.restaurantIndex + 1) % DataStorage.listOfRestaurants.size());
-                changeProfile(DataStorage.restaurantIndex);
+                if(DataStorage.listOfRestaurants.size() > 0) {
+                    DataStorage.listOfRestaurants.remove(0);
+                    changeProfile(DataStorage.restaurantIndex);
+                }
+                else{
+                    noMoreRestaurants();
+                }
             }
             public void onSwipeLeft() {
-                DataStorage.setRestaurantIndex((DataStorage.restaurantIndex + DataStorage.listOfRestaurants.size() - 1) % DataStorage.listOfRestaurants.size());
-                changeProfile(DataStorage.restaurantIndex);
+                if(DataStorage.listOfRestaurants.size() > 0) {
+                    DataStorage.listOfRestaurants.remove(0);
+                    changeProfile(DataStorage.restaurantIndex);
+                }
+                else{
+                    noMoreRestaurants();
+                }
             }
 
             @Override
             public void onTap() {
-                gotoProfile(findViewById(R.id.main_profileBtn));
+                if(DataStorage.listOfRestaurants.size() > 0) {
+                    gotoProfile(findViewById(R.id.main_profileBtn));
+                }
             }
         });
         //////////////////////////////////////////////////////////////////////////
@@ -160,6 +199,26 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
        // ImageView star = (ImageView)findViewById(R.id.main_star1);
        // star.setImageResource(android.R.drawable.btn_star_big_on);
 
+    }
+
+    public void noMoreRestaurants(){
+        ImageView []setStar = {findViewById(R.id.main_star1),findViewById(R.id.main_star2),findViewById(R.id.main_star3),
+                findViewById(R.id.main_star4),findViewById(R.id.main_star5)};
+        ImageButton imgBtn = (ImageButton) findViewById(R.id.main_profileBtn);
+        if(DataStorage.listOfRestaurants.size() > 0){
+            DataStorage.listOfRestaurants.remove(0);
+        }
+        imgBtn.setImageResource(R.drawable.no_more_restaurants);
+        TextView temp = findViewById(R.id.main_restaurantName);
+        temp.setText("");
+
+        temp = findViewById(R.id.main_restaurantDistance);
+        temp.setText("");
+
+        for(int j = 0; j < 5; j++)
+        {
+            setStar[j].setImageResource(android.R.drawable.btn_star_big_off);
+        }
     }
 
     public void gotoFavorites(View v){

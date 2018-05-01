@@ -45,6 +45,10 @@ public class Review{
         return profileName;
     }
 
+    public void setProfileName(String profileName) {
+        this.profileName = profileName;
+    }
+
     public String getProfileLink() {
         return profileLink;
     }
