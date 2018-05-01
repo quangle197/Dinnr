@@ -3,6 +3,8 @@ package com.csulb.cecsymemeteam.dinnr;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
+import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -16,8 +18,6 @@ import android.widget.WrapperListAdapter;
 import java.util.ArrayList;
 
 public class ProfileActivity extends AppCompatActivity {
-    private int numOfReviews = 0;
-    private ArrayList<Review> reviews = new ArrayList<Review>();                  //we need to retrieve this via a database
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,13 +25,37 @@ public class ProfileActivity extends AppCompatActivity {
 
         LinearLayout scrollView = findViewById(R.id.profile_reviewsContainer);
 
-        //Grabs 7 reviews (from a database or whatever) and creates it on screen so that the user can view them
-        for(int i = 0; i < 7; i++){
-            reviews.add(new Review());
-            scrollView.addView(ReviewFactory.generateReview(this, reviews.get(i),numOfReviews), new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
-            numOfReviews++;
+        for(int i = 0; i < DataStorage.getListOfReviews().size(); i++){
+            scrollView.addView(ReviewFactory.generateReview(this, DataStorage.getListOfReviews().get(i), i), new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
         }
+
+        LinearLayout restaurantImg = findViewById(R.id.profile_restaurantLayout);
+        restaurantImg.setBackgroundResource(DataStorage.getRestaurant().getRefToImg());
+        ImageView []setStar = {findViewById(R.id.profile_star1),findViewById(R.id.profile_star2),findViewById(R.id.profile_star3), findViewById(R.id.profile_star4), findViewById(R.id.profile_star5)};
+        for(int i = 0;i < DataStorage.getListOfRestaurants().get(DataStorage.restaurantIndex).getStarRating();i++)
+        {
+            setStar[i].setImageResource(android.R.drawable.btn_star_big_on);
+        }
+        if(DataStorage.getListOfRestaurants().get(DataStorage.restaurantIndex).getStarRating() <5)
+        {
+            for(int j=4;j>=DataStorage.getListOfRestaurants().get(DataStorage.restaurantIndex).getStarRating();j--)
+            {
+                setStar[j].setImageResource(android.R.drawable.btn_star_big_off);
+            }
+        }
+
+        TextView temp = findViewById(R.id.profile_restaurantName);
+        temp.setText(DataStorage.getRestaurant().getName());
+
+        temp = findViewById(R.id.profile_restaurantDistance);
+        temp.setText(DataStorage.getRestaurant().getDistance());
+
+        temp = findViewById(R.id.profile_addressTxt);
+        temp.setText(DataStorage.getRestaurant().address);
+
     }
+
+
 
     /**
      * Directs users to the write review activity
