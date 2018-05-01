@@ -28,6 +28,33 @@ public class DataStorage {
         listOfRestaurants.get(listOfRestaurants.size() - 1).generateGenericReviews();
         listOfRestaurants.get(listOfRestaurants.size() - 1).generateGenericReviews();
         listOfRestaurants.get(listOfRestaurants.size() - 1).generateGenericReviews();
+
+        //Subway
+        listOfRestaurants.add(new RestaurantProfile("Subway", "1225 Sub Way","0.4 Miles", 4, R.drawable.subway));
+        listOfRestaurants.get(listOfRestaurants.size() - 1).generateGenericReviews();
+        listOfRestaurants.get(listOfRestaurants.size() - 1).generateGenericReviews();
+        listOfRestaurants.get(listOfRestaurants.size() - 1).generateGenericReviews();
+        listOfRestaurants.get(listOfRestaurants.size() - 1).generateGenericReviews();
+
+
+        //KFC
+        listOfRestaurants.add(new RestaurantProfile("KFC", "6432 Blackstone Dr","1.4 Miles", 2, R.drawable.kfc));
+        listOfRestaurants.get(listOfRestaurants.size() - 1).generateGenericReviews();
+        listOfRestaurants.get(listOfRestaurants.size() - 1).generateGenericReviews();
+
+        //Burger King
+        listOfRestaurants.add(new RestaurantProfile("Burger King", "422 Blaze Street","0.5 Miles", 4, R.drawable.burger_king));
+        listOfRestaurants.get(listOfRestaurants.size() - 1).generateGenericReviews();
+
+        //Pizza Hut
+        listOfRestaurants.add(new RestaurantProfile("Pizza Hut", "68 Rando Road","0.8 Miles", 3, R.drawable.pizza_hut));
+        listOfRestaurants.get(listOfRestaurants.size() - 1).generateGenericReviews();
+        listOfRestaurants.get(listOfRestaurants.size() - 1).generateGenericReviews();
+        listOfRestaurants.get(listOfRestaurants.size() - 1).generateGenericReviews();
+
+        //Starbucks
+        listOfRestaurants.add(new RestaurantProfile("Starbucks", "19943 White Ave","1.1 Miles", 4, R.drawable.starbucks));
+        listOfRestaurants.get(listOfRestaurants.size() - 1).generateGenericReviews();
     }
 
     public static ArrayList<Review> getListOfReviews(){
