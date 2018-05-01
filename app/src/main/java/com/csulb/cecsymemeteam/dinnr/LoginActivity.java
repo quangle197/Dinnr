@@ -31,10 +31,11 @@ public class LoginActivity extends AppCompatActivity {
         if(userTxtField.getText().length() < 1 || passTxtField.getText().length() < 1){
             warningText.setText("Neither the username nor password should be blank");
         }
-        DataStorage.setLoggedIn(true);
-        DataStorage.loginName = userTxtField.getText() + "";
-        startActivity(new Intent(this, MainActivity.class));
-
+        else{
+            DataStorage.setLoggedIn(true);
+            DataStorage.loginName = userTxtField.getText() + "";
+            startActivity(new Intent(this, MainActivity.class));
+        }
     }
 
     public void createAccount(View v){

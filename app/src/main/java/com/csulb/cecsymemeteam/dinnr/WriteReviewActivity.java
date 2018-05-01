@@ -22,6 +22,9 @@ public class WriteReviewActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Review r = new Review("Anonymous","google.com",title.getText().toString(),
                         comment.getText().toString(), 4);
+                if(DataStorage.isLoggedIn()){
+                    r.setProfileName(DataStorage.getLoginName());
+                }
                 DataStorage.getRestaurant().addReview(r, 0);
                 sendReview(view);
             }
