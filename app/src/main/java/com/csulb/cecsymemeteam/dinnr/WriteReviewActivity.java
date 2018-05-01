@@ -22,7 +22,7 @@ public class WriteReviewActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Review r = new Review(DataStorage.getRestaurant().getName(),"google.com",title.getText().toString(),
                         comment.getText().toString(), 4);
-                DataStorage.getRestaurant().addReview(r);
+                DataStorage.getRestaurant().addReview(r, 0);
                 sendReview(view);
             }
 
