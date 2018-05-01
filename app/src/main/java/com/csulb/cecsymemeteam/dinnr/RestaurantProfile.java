@@ -3,6 +3,8 @@ package com.csulb.cecsymemeteam.dinnr;
 import android.graphics.drawable.Drawable;
 import android.widget.ImageButton;
 
+import java.util.ArrayList;
+
 /**
  * Created by Jason on 2/28/2018.
  * The purpose of this class is to store the attributes of a restaurant
@@ -10,15 +12,19 @@ import android.widget.ImageButton;
 
 public class RestaurantProfile{
     public String name;
+    public String address;
     public String distance;
     public int starRating;
-    public Drawable img;
+    public int refToImg;
+    public ArrayList<Review> listOfReviews;
 
-    public RestaurantProfile(String name, String distance, int starRating){
+    public RestaurantProfile(String name, String address, String distance, int starRating, int refToImg){
         this.name = name;
+        this.address = address;
         this.distance = distance;
         this.starRating = starRating;
-        this.img = img;
+        this.refToImg = refToImg;
+        listOfReviews = new ArrayList<>();
     }
 
     public String getName() {
@@ -45,11 +51,24 @@ public class RestaurantProfile{
         this.starRating = starRating;
     }
 
-    public Drawable getImg() {
-        return img;
+    public int getRefToImg() {
+        return refToImg;
     }
 
-    public void setImg(Drawable img) {
-        this.img = img;
+    public void setRefToImg(int refToImg) {
+        this.refToImg = refToImg;
+    }
+
+    public ArrayList<Review> getListOfReviews() {
+        return listOfReviews;
+    }
+
+    public void setListOfReviews(ArrayList<Review> listOfReviews) {
+        this.listOfReviews = listOfReviews;
+    }
+
+    public void generateGenericReviews(){
+        listOfReviews.add(new Review());
+        listOfReviews.add(new Review());
     }
 }

@@ -1,6 +1,7 @@
 package com.csulb.cecsymemeteam.dinnr;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -83,6 +84,19 @@ public class ReviewFactory {
         //=====================================================================================================================================================//
 
         //=====================================================================================================================================================//
+        //Formatting for the user's comment's title
+        TextView title = new TextView(context);
+        title.setText(r.getTitleOfComment());
+        title.setTypeface(Typeface.DEFAULT_BOLD);
+        if(title.getText().length() > 0){
+            title.setPadding(0,0,0,5);
+        }
+        review.addView(title, new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT, 1f));
+        params = (ViewGroup.MarginLayoutParams) title.getLayoutParams();
+        params.leftMargin = 5;
+        //=====================================================================================================================================================//*/
+
+        //=====================================================================================================================================================//
         //Formatting for the user's comment
         TextView comment = new TextView(context);
         comment.setText(r.getComment());
@@ -157,6 +171,16 @@ public class ReviewFactory {
         params = (ViewGroup.MarginLayoutParams) dateTxt.getLayoutParams();
         params.rightMargin = 5;
         //=====================================================================================================================================================//
+
+        //=====================================================================================================================================================//
+        //Formatting for the user's comment's title
+        TextView title = new TextView(context);
+        title.setText(r.getTitleOfComment());
+        title.setTypeface(Typeface.DEFAULT_BOLD);
+        review.addView(title, new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT, 1f));
+        params = (ViewGroup.MarginLayoutParams) title.getLayoutParams();
+        params.leftMargin = 5;
+        //=====================================================================================================================================================//*/
 
         //=====================================================================================================================================================//
         //Formatting for the user's comment
