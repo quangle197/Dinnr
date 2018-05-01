@@ -88,6 +88,9 @@ public class ReviewFactory {
         TextView title = new TextView(context);
         title.setText(r.getTitleOfComment());
         title.setTypeface(Typeface.DEFAULT_BOLD);
+        if(title.getText().length() > 0){
+            title.setPadding(0,0,0,5);
+        }
         review.addView(title, new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT, 1f));
         params = (ViewGroup.MarginLayoutParams) title.getLayoutParams();
         params.leftMargin = 5;

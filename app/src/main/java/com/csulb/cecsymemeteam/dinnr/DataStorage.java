@@ -1,5 +1,7 @@
 package com.csulb.cecsymemeteam.dinnr;
 
+import android.widget.RemoteViews;
+
 import java.util.ArrayList;
 
 /*
@@ -26,6 +28,14 @@ public class DataStorage {
         listOfRestaurants.get(listOfRestaurants.size() - 1).generateGenericReviews();
         listOfRestaurants.get(listOfRestaurants.size() - 1).generateGenericReviews();
         listOfRestaurants.get(listOfRestaurants.size() - 1).generateGenericReviews();
+    }
+
+    public static ArrayList<Review> getListOfReviews(){
+        return listOfRestaurants.get(restaurantIndex).getListOfReviews();
+    }
+
+    public static RestaurantProfile getRestaurant(){
+        return listOfRestaurants.get(restaurantIndex);
     }
 
     public static boolean isLoggedIn() {

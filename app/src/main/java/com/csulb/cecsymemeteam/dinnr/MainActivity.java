@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         ActionBar actionbar = getSupportActionBar();
         actionbar.setDisplayHomeAsUpEnabled(true);
         actionbar.setHomeAsUpIndicator(R.drawable.ic_menu);
+        changeProfile(DataStorage.restaurantIndex);
 
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
@@ -48,7 +49,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         //////////////////////////////////////////////////////////////////////////
         linearLayout.setOnTouchListener(new GestureListener(MainActivity.this)
         {
-
             @Override
             public void onSwipeRight()
             {
@@ -60,7 +60,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 DataStorage.setRestaurantIndex((DataStorage.restaurantIndex + DataStorage.listOfRestaurants.size() - 1) % DataStorage.listOfRestaurants.size());
                 changeProfile(DataStorage.restaurantIndex);
             }
-
         });
         //////////////////////////////////////////////////////////////////////////
         //                      profile Plaque Listeners                        //
