@@ -12,6 +12,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
@@ -43,10 +44,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-
+        Menu nav_menu = navigationView.getMenu();
         //////////////////////////////////////////////////////////////////////////
         //                      profile Plaque Listeners                        //
         //////////////////////////////////////////////////////////////////////////
+
+        if(DataStorage.isLoggedIn()) {
+            nav_menu.findItem(R.id.Account).setVisible(true);
+            nav_menu.findItem(R.id.newAccount).setVisible(false);
+            nav_menu.findItem(R.id.login).setVisible(false);
+        }
         linearLayout.setOnTouchListener(new GestureListener(MainActivity.this)
         {
             @Override

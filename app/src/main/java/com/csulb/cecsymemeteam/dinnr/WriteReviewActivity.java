@@ -20,7 +20,7 @@ public class WriteReviewActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                Review r = new Review(DataStorage.getRestaurant().getName(),"google.com",title.getText().toString(),
+                Review r = new Review("Anonymous","google.com",title.getText().toString(),
                         comment.getText().toString(), 4);
                 DataStorage.getRestaurant().addReview(r);
                 sendReview(view);
