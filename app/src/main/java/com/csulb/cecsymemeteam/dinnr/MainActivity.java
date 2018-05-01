@@ -205,6 +205,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         ImageView []setStar = {findViewById(R.id.main_star1),findViewById(R.id.main_star2),findViewById(R.id.main_star3),
                 findViewById(R.id.main_star4),findViewById(R.id.main_star5)};
         ImageButton imgBtn = (ImageButton) findViewById(R.id.main_profileBtn);
+        if(DataStorage.listOfRestaurants.size() > 0){
+            DataStorage.listOfRestaurants.remove(0);
+        }
         imgBtn.setImageResource(R.drawable.no_more_restaurants);
         TextView temp = findViewById(R.id.main_restaurantName);
         temp.setText("");
