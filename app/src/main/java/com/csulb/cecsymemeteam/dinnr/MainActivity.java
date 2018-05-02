@@ -159,22 +159,22 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             ImageView []setStar = {findViewById(R.id.main_star1),findViewById(R.id.main_star2),findViewById(R.id.main_star3),
                     findViewById(R.id.main_star4),findViewById(R.id.main_star5)};
             ImageButton imgBtn = (ImageButton) findViewById(R.id.main_profileBtn);
-            imgBtn.setImageResource(DataStorage.getListOfRestaurants().peek().getRefToImg());
+            imgBtn.setImageResource(DataStorage.getRestaurant().getRefToImg());
             TextView temp = (TextView) findViewById(R.id.main_restaurantName);
-            temp.setText(DataStorage.getListOfRestaurants().peek().getName());
+            temp.setText(DataStorage.getRestaurant().getName());
 
             temp = findViewById(R.id.main_restaurantDistance);
-            temp.setText(DataStorage.getListOfRestaurants().peek().getDistance());
+            temp.setText(DataStorage.getRestaurant().getDistance());
 
 
-            for(int i = 0;i < DataStorage.getListOfRestaurants().peek().getStarRating();i++)
+            for(int i = 0;i < DataStorage.getRestaurant().getStarRating();i++)
             {
                 setStar[i].setImageResource(android.R.drawable.btn_star_big_on);
 
             }
-            if(DataStorage.getListOfRestaurants().peek().getStarRating() <5)
+            if(DataStorage.getRestaurant().getStarRating() <5)
             {
-                for(int j=4;j>=DataStorage.getListOfRestaurants().peek().getStarRating();j--)
+                for(int j=4;j>=DataStorage.getRestaurant().getStarRating();j--)
                 {
                     setStar[j].setImageResource(android.R.drawable.btn_star_big_off);
                 }
