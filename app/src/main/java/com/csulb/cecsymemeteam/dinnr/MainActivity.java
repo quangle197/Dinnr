@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        DataStorage.generateRestaurants(DataStorage.getListOfRestaurants());
+        DataStorage.generateRestaurants();
         LinearLayout linearLayout = (LinearLayout) findViewById(R.id.main_restaurantPlaque);
         mDrawerLayout =(DrawerLayout) findViewById(R.id.drawer);
         mToggle = new ActionBarDrawerToggle(this, mDrawerLayout,R.string.open, R.string.close);
@@ -92,6 +92,31 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         });
         //////////////////////////////////////////////////////////////////////////
         //                        like Button Listeners                         //
+        //////////////////////////////////////////////////////////////////////////
+
+        //////////////////////////////////////////////////////////////////////////
+        //                       reset Button Listeners                         //
+        //////////////////////////////////////////////////////////////////////////
+        ImageButton reset =(ImageButton) findViewById(R.id.main_resetButton);
+        reset.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                if(!DataStorage.getQueue().isEmpty()){
+                    DataStorage.getListOfRestaurants().clear();
+                    DataStorage.getListOfRestaurants().add(DataStorage.getQueue().get((int)(Math.random() * DataStorage.getQueue().size())));   //in line coding, the best coding :^)`
+                    DataStorage.getQueue().clear();
+                }
+                else{
+                    DataStorage.getListOfRestaurants().clear();
+                    DataStorage.setBeenGenerated(false);
+                    DataStorage.generateRestaurants();
+                }
+                updateProfile();
+            }
+        });
+        //////////////////////////////////////////////////////////////////////////
+        //                       reset Button Listeners                         //
         //////////////////////////////////////////////////////////////////////////
 
         //////////////////////////////////////////////////////////////////////////

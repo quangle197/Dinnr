@@ -15,7 +15,7 @@ public class DataStorage {
     private static Stack<RestaurantProfile> listOfRestaurants = new Stack<>();
     private static ArrayList<RestaurantProfile> queue = new ArrayList<>();
 
-    public static void generateRestaurants(Stack<RestaurantProfile> listOfRestaurants){
+    public static void generateRestaurants(){
         if(!beenGenerated) {
             //Mcdonalds should have 2 reviews
             listOfRestaurants.push(new RestaurantProfile("Mcdonalds", "420 Blaze Street", "0.5 Miles", 4, R.drawable.mcdonalds));
@@ -101,5 +101,13 @@ public class DataStorage {
 
     public static void setQueue(ArrayList<RestaurantProfile> queue) {
         DataStorage.queue = queue;
+    }
+
+    public static boolean isBeenGenerated() {
+        return beenGenerated;
+    }
+
+    public static void setBeenGenerated(boolean beenGenerated) {
+        DataStorage.beenGenerated = beenGenerated;
     }
 }
