@@ -12,6 +12,7 @@ public class DataStorage {
     private static boolean beenGenerated = false;
     public static String loginName = "";
     public static ArrayList<RestaurantProfile> listOfRestaurants = new ArrayList<>();
+    public static ArrayList<RestaurantProfile> queue = new ArrayList<>();
     public static int restaurantIndex = 0;
 
     public static void generateRestaurants(ArrayList<RestaurantProfile> listOfRestaurants){
@@ -21,12 +22,12 @@ public class DataStorage {
             listOfRestaurants.get(listOfRestaurants.size() - 1).generateGenericReviews();
 
             //Tacobell should have 4 reviews
-            listOfRestaurants.add(new RestaurantProfile("Taco Bell", "6523 Flavor Town", "2.0 Miles", 3, R.drawable.innnout));
+            listOfRestaurants.add(new RestaurantProfile("In N Out", "6523 Flavor Town", "2.0 Miles", 3, R.drawable.innnout));
             listOfRestaurants.get(listOfRestaurants.size() - 1).generateGenericReviews();
             listOfRestaurants.get(listOfRestaurants.size() - 1).generateGenericReviews();
 
             //Inn and out should have 3 reviews
-            listOfRestaurants.add(new RestaurantProfile("Inn N Out", "2102 Lazy Ave", "0.2 Miles", 5, R.drawable.tacobell));
+            listOfRestaurants.add(new RestaurantProfile("Taco Bell", "2102 Lazy Ave", "0.2 Miles", 5, R.drawable.tacobell));
             listOfRestaurants.get(listOfRestaurants.size() - 1).generateGenericReviews();
             listOfRestaurants.get(listOfRestaurants.size() - 1).generateGenericReviews();
             listOfRestaurants.get(listOfRestaurants.size() - 1).generateGenericReviews();

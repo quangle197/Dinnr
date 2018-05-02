@@ -21,6 +21,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.sql.DatabaseMetaData;
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout mDrawerLayout;
@@ -60,8 +61,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             public void onSwipeRight()
             {
                 if(DataStorage.listOfRestaurants.size() > 0){
+                    DataStorage.queue.add(DataStorage.listOfRestaurants.get(0));
                     DataStorage.listOfRestaurants.remove(0);
                     changeProfile(DataStorage.restaurantIndex);
+
                 }
                 else{
                     noMoreRestaurants();
@@ -91,6 +94,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onClick(View view) {
                 if(DataStorage.listOfRestaurants.size() > 1) {
+                    DataStorage.queue.add(DataStorage.listOfRestaurants.get(0));
                     DataStorage.listOfRestaurants.remove(0);
                     changeProfile(DataStorage.restaurantIndex);
                 }
@@ -133,6 +137,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             public void onSwipeRight()
             {
                 if(DataStorage.listOfRestaurants.size() > 0) {
+                    DataStorage.queue.add(DataStorage.listOfRestaurants.get(0));
                     DataStorage.listOfRestaurants.remove(0);
                     changeProfile(DataStorage.restaurantIndex);
                 }
@@ -160,6 +165,20 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         //////////////////////////////////////////////////////////////////////////
         //                      Profile Button Listeners                        //
         //////////////////////////////////////////////////////////////////////////
+
+        //Select a random restaurant
+        ImageButton done = findViewById(R.id.main_doneButton);
+        done.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                Random r = new Random();
+                int size = DataStorage.queue.size()-1;
+                int i = r.nextInt(size);
+                DataStorage.listOfRestaurants.add(DataStorage.queue.get(i));
+                changeProfile(DataStorage.restaurantIndex);
+            }
+        });
     }
 
     @Override
