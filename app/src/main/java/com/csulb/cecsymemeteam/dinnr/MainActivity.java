@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        DataStorage.generateRestaurants(DataStorage.listOfRestaurants);
+        DataStorage.generateRestaurants();
         LinearLayout linearLayout = (LinearLayout) findViewById(R.id.main_restaurantPlaque);
         mDrawerLayout =(DrawerLayout) findViewById(R.id.drawer);
         mToggle = new ActionBarDrawerToggle(this, mDrawerLayout,R.string.open, R.string.close);
@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         ActionBar actionbar = getSupportActionBar();
         actionbar.setDisplayHomeAsUpEnabled(true);
         actionbar.setHomeAsUpIndicator(R.drawable.ic_menu);
-        changeProfile(DataStorage.restaurantIndex);
+        updateProfile();
 
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
@@ -59,23 +59,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onSwipeRight()
             {
-                if(DataStorage.listOfRestaurants.size() > 0){
-                    DataStorage.listOfRestaurants.remove(0);
-                    changeProfile(DataStorage.restaurantIndex);
+                if(!DataStorage.getListOfRestaurants().empty()) {
+                    DataStorage.getQueue().add(DataStorage.getListOfRestaurants().pop());
                 }
-                else{
-                    noMoreRestaurants();
-                }
+                updateProfile();
             }
             public void onSwipeLeft()
             {
-                if(DataStorage.listOfRestaurants.size() > 0) {
-                    DataStorage.listOfRestaurants.remove(0);
-                    changeProfile(DataStorage.restaurantIndex);
+                if(!DataStorage.getListOfRestaurants().empty()) {
+                    DataStorage.getListOfRestaurants().pop();
                 }
-                else{
-                    noMoreRestaurants();
-                }
+                updateProfile();
             }
         });
         //////////////////////////////////////////////////////////////////////////
@@ -90,17 +84,39 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             @Override
             public void onClick(View view) {
-                if(DataStorage.listOfRestaurants.size() > 1) {
-                    DataStorage.listOfRestaurants.remove(0);
-                    changeProfile(DataStorage.restaurantIndex);
+                if(!DataStorage.getListOfRestaurants().empty()) {
+                    DataStorage.getQueue().add(DataStorage.getListOfRestaurants().pop());
                 }
-                else{
-                    noMoreRestaurants();
-                }
+                updateProfile();
             }
         });
         //////////////////////////////////////////////////////////////////////////
         //                        like Button Listeners                         //
+        //////////////////////////////////////////////////////////////////////////
+
+        //////////////////////////////////////////////////////////////////////////
+        //                       reset Button Listeners                         //
+        //////////////////////////////////////////////////////////////////////////
+        ImageButton reset =(ImageButton) findViewById(R.id.main_resetButton);
+        reset.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                if(!DataStorage.getQueue().isEmpty()){
+                    DataStorage.getListOfRestaurants().clear();
+                    DataStorage.getListOfRestaurants().add(DataStorage.getQueue().get((int)(Math.random() * DataStorage.getQueue().size())));   //in line coding, the best coding :^)`
+                    DataStorage.getQueue().clear();
+                }
+                else{
+                    DataStorage.getListOfRestaurants().clear();
+                    DataStorage.setBeenGenerated(false);
+                    DataStorage.generateRestaurants();
+                }
+                updateProfile();
+            }
+        });
+        //////////////////////////////////////////////////////////////////////////
+        //                       reset Button Listeners                         //
         //////////////////////////////////////////////////////////////////////////
 
         //////////////////////////////////////////////////////////////////////////
@@ -111,13 +127,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             @Override
             public void onClick(View view) {
-                if(DataStorage.listOfRestaurants.size() > 1) {
-                    DataStorage.listOfRestaurants.remove(0);
-                    changeProfile(DataStorage.restaurantIndex);
+                if(!DataStorage.getListOfRestaurants().empty()) {
+                    DataStorage.getListOfRestaurants().pop();
                 }
-                else{
-                    noMoreRestaurants();
-                }
+                updateProfile();
             }
         });
         //////////////////////////////////////////////////////////////////////////
@@ -132,27 +145,22 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onSwipeRight()
             {
-                if(DataStorage.listOfRestaurants.size() > 0) {
-                    DataStorage.listOfRestaurants.remove(0);
-                    changeProfile(DataStorage.restaurantIndex);
+                if(!DataStorage.getListOfRestaurants().empty()) {
+                    DataStorage.getQueue().add(DataStorage.getListOfRestaurants().pop());
                 }
-                else{
-                    noMoreRestaurants();
-                }
+                updateProfile();
             }
-            public void onSwipeLeft() {
-                if(DataStorage.listOfRestaurants.size() > 0) {
-                    DataStorage.listOfRestaurants.remove(0);
-                    changeProfile(DataStorage.restaurantIndex);
+            public void onSwipeLeft()
+            {
+                if(!DataStorage.getListOfRestaurants().empty()) {
+                    DataStorage.getListOfRestaurants().pop();
                 }
-                else{
-                    noMoreRestaurants();
-                }
+                updateProfile();
             }
 
             @Override
             public void onTap() {
-                if(DataStorage.listOfRestaurants.size() > 0) {
+                if(!DataStorage.getListOfRestaurants().empty()) {
                     gotoProfile(findViewById(R.id.main_profileBtn));
                 }
             }
@@ -172,41 +180,45 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return super.onOptionsItemSelected(item);
     }
 
-    public void changeProfile(int index){
-        ImageView []setStar = {findViewById(R.id.main_star1),findViewById(R.id.main_star2),findViewById(R.id.main_star3),
-                findViewById(R.id.main_star4),findViewById(R.id.main_star5)};
-        ImageButton imgBtn = (ImageButton) findViewById(R.id.main_profileBtn);
-        imgBtn.setImageResource(DataStorage.getListOfRestaurants().get(DataStorage.restaurantIndex).getRefToImg());
-        TextView temp = (TextView) findViewById(R.id.main_restaurantName);
-        temp.setText(DataStorage.getListOfRestaurants().get(DataStorage.restaurantIndex).getName());
+    public void updateProfile(){
+        if(!DataStorage.getListOfRestaurants().empty()){
+            ImageView []setStar = {findViewById(R.id.main_star1),findViewById(R.id.main_star2),findViewById(R.id.main_star3),
+                    findViewById(R.id.main_star4),findViewById(R.id.main_star5)};
+            ImageButton imgBtn = (ImageButton) findViewById(R.id.main_profileBtn);
+            imgBtn.setImageResource(DataStorage.getRestaurant().getRefToImg());
+            TextView temp = (TextView) findViewById(R.id.main_restaurantName);
+            temp.setText(DataStorage.getRestaurant().getName());
 
-        temp = findViewById(R.id.main_restaurantDistance);
-        temp.setText(DataStorage.getListOfRestaurants().get(DataStorage.restaurantIndex).getDistance());
+            temp = findViewById(R.id.main_restaurantDistance);
+            temp.setText(DataStorage.getRestaurant().getDistance());
 
 
-        for(int i = 0;i < DataStorage.getListOfRestaurants().get(DataStorage.restaurantIndex).getStarRating();i++)
-        {
-            setStar[i].setImageResource(android.R.drawable.btn_star_big_on);
-
-        }
-        if(DataStorage.getListOfRestaurants().get(DataStorage.restaurantIndex).getStarRating() <5)
-        {
-            for(int j=4;j>=DataStorage.getListOfRestaurants().get(DataStorage.restaurantIndex).getStarRating();j--)
+            for(int i = 0;i < DataStorage.getRestaurant().getStarRating();i++)
             {
-                setStar[j].setImageResource(android.R.drawable.btn_star_big_off);
-            }
-        }
-       // ImageView star = (ImageView)findViewById(R.id.main_star1);
-       // star.setImageResource(android.R.drawable.btn_star_big_on);
+                setStar[i].setImageResource(android.R.drawable.btn_star_big_on);
 
+            }
+            if(DataStorage.getRestaurant().getStarRating() <5)
+            {
+                for(int j=4;j>=DataStorage.getRestaurant().getStarRating();j--)
+                {
+                    setStar[j].setImageResource(android.R.drawable.btn_star_big_off);
+                }
+            }
+            // ImageView star = (ImageView)findViewById(R.id.main_star1);
+            // star.setImageResource(android.R.drawable.btn_star_big_on);
+        }
+        else{
+            noMoreRestaurants();
+        }
     }
 
     public void noMoreRestaurants(){
         ImageView []setStar = {findViewById(R.id.main_star1),findViewById(R.id.main_star2),findViewById(R.id.main_star3),
                 findViewById(R.id.main_star4),findViewById(R.id.main_star5)};
         ImageButton imgBtn = (ImageButton) findViewById(R.id.main_profileBtn);
-        if(DataStorage.listOfRestaurants.size() > 0){
-            DataStorage.listOfRestaurants.remove(0);
+        if(DataStorage.getListOfRestaurants().size() > 0){
+            DataStorage.getListOfRestaurants().remove(0);
         }
         imgBtn.setImageResource(R.drawable.no_more_restaurants);
         TextView temp = findViewById(R.id.main_restaurantName);
