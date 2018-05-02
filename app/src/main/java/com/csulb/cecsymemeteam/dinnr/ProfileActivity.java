@@ -38,7 +38,7 @@ public class ProfileActivity extends AppCompatActivity {
         }
         if(DataStorage.getListOfRestaurants().peek().getStarRating() <5)
         {
-            for(int j=4;j>=DataStorage.getListOfRestaurants().peek().getStarRating();j--)
+            for(int j=4; j>=DataStorage.getListOfRestaurants().peek().getStarRating(); j--)
             {
                 setStar[j].setImageResource(android.R.drawable.btn_star_big_off);
             }

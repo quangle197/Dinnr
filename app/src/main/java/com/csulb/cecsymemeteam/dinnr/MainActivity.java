@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        DataStorage.generateRestaurants(DataStorage.listOfRestaurants);
+        DataStorage.generateRestaurants(DataStorage.getListOfRestaurants());
         LinearLayout linearLayout = (LinearLayout) findViewById(R.id.main_restaurantPlaque);
         mDrawerLayout =(DrawerLayout) findViewById(R.id.drawer);
         mToggle = new ActionBarDrawerToggle(this, mDrawerLayout,R.string.open, R.string.close);
@@ -59,15 +59,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onSwipeRight()
             {
-                if(!DataStorage.listOfRestaurants.empty()) {
-                    DataStorage.listOfRestaurants.pop();
+                if(!DataStorage.getListOfRestaurants().empty()) {
+                    DataStorage.getQueue().add(DataStorage.getListOfRestaurants().pop());
                 }
                 updateProfile();
             }
             public void onSwipeLeft()
             {
-                if(!DataStorage.listOfRestaurants.empty()) {
-                    DataStorage.listOfRestaurants.pop();
+                if(!DataStorage.getListOfRestaurants().empty()) {
+                    DataStorage.getListOfRestaurants().pop();
                 }
                 updateProfile();
             }
@@ -84,8 +84,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             @Override
             public void onClick(View view) {
-                if(!DataStorage.listOfRestaurants.empty()) {
-                    DataStorage.listOfRestaurants.pop();
+                if(!DataStorage.getListOfRestaurants().empty()) {
+                    DataStorage.getQueue().add(DataStorage.getListOfRestaurants().pop());
                 }
                 updateProfile();
             }
@@ -102,8 +102,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             @Override
             public void onClick(View view) {
-                if(!DataStorage.listOfRestaurants.empty()) {
-                    DataStorage.listOfRestaurants.pop();
+                if(!DataStorage.getListOfRestaurants().empty()) {
+                    DataStorage.getListOfRestaurants().pop();
                 }
                 updateProfile();
             }
@@ -120,21 +120,22 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onSwipeRight()
             {
-                if(!DataStorage.listOfRestaurants.empty()) {
-                    DataStorage.listOfRestaurants.pop();
+                if(!DataStorage.getListOfRestaurants().empty()) {
+                    DataStorage.getQueue().add(DataStorage.getListOfRestaurants().pop());
                 }
                 updateProfile();
             }
-            public void onSwipeLeft() {
-                if(!DataStorage.listOfRestaurants.empty()) {
-                    DataStorage.listOfRestaurants.pop();
+            public void onSwipeLeft()
+            {
+                if(!DataStorage.getListOfRestaurants().empty()) {
+                    DataStorage.getListOfRestaurants().pop();
                 }
                 updateProfile();
             }
 
             @Override
             public void onTap() {
-                if(!DataStorage.listOfRestaurants.empty()) {
+                if(!DataStorage.getListOfRestaurants().empty()) {
                     gotoProfile(findViewById(R.id.main_profileBtn));
                 }
             }
@@ -155,7 +156,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     public void updateProfile(){
-        if(!DataStorage.listOfRestaurants.empty()){
+        if(!DataStorage.getListOfRestaurants().empty()){
             ImageView []setStar = {findViewById(R.id.main_star1),findViewById(R.id.main_star2),findViewById(R.id.main_star3),
                     findViewById(R.id.main_star4),findViewById(R.id.main_star5)};
             ImageButton imgBtn = (ImageButton) findViewById(R.id.main_profileBtn);
@@ -191,8 +192,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         ImageView []setStar = {findViewById(R.id.main_star1),findViewById(R.id.main_star2),findViewById(R.id.main_star3),
                 findViewById(R.id.main_star4),findViewById(R.id.main_star5)};
         ImageButton imgBtn = (ImageButton) findViewById(R.id.main_profileBtn);
-        if(DataStorage.listOfRestaurants.size() > 0){
-            DataStorage.listOfRestaurants.remove(0);
+        if(DataStorage.getListOfRestaurants().size() > 0){
+            DataStorage.getListOfRestaurants().remove(0);
         }
         imgBtn.setImageResource(R.drawable.no_more_restaurants);
         TextView temp = findViewById(R.id.main_restaurantName);

@@ -9,10 +9,11 @@ import java.util.Stack;
     Lmao this is just a dummy class to hold all the runtime variables and makes it easier for activities to access them outside of doing troublesome stuff like using an actual database or using intents
  */
 public class DataStorage {
-    public static boolean loggedIn = false;
+    private static boolean loggedIn = false;
     private static boolean beenGenerated = false;
-    public static String loginName = "";
-    public static Stack<RestaurantProfile> listOfRestaurants = new Stack<>();
+    private static String loginName = "";
+    private static Stack<RestaurantProfile> listOfRestaurants = new Stack<>();
+    private static ArrayList<RestaurantProfile> queue = new ArrayList<>();
 
     public static void generateRestaurants(Stack<RestaurantProfile> listOfRestaurants){
         if(!beenGenerated) {
@@ -92,5 +93,13 @@ public class DataStorage {
 
     public static void setListOfRestaurants(Stack<RestaurantProfile> listOfRestaurants) {
         DataStorage.listOfRestaurants = listOfRestaurants;
+    }
+
+    public static ArrayList<RestaurantProfile> getQueue() {
+        return queue;
+    }
+
+    public static void setQueue(ArrayList<RestaurantProfile> queue) {
+        DataStorage.queue = queue;
     }
 }
