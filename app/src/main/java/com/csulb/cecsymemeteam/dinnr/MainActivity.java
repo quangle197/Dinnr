@@ -21,6 +21,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.sql.DatabaseMetaData;
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout mDrawerLayout;
@@ -61,6 +62,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             {
                 if(!DataStorage.getListOfRestaurants().empty()) {
                     DataStorage.getQueue().add(DataStorage.getListOfRestaurants().pop());
+
                 }
                 updateProfile();
             }
@@ -106,6 +108,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     DataStorage.getListOfRestaurants().clear();
                     DataStorage.getListOfRestaurants().add(DataStorage.getQueue().get((int)(Math.random() * DataStorage.getQueue().size())));   //in line coding, the best coding :^)`
                     DataStorage.getQueue().clear();
+
                 }
                 else{
                     DataStorage.getListOfRestaurants().clear();
@@ -168,6 +171,20 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         //////////////////////////////////////////////////////////////////////////
         //                      Profile Button Listeners                        //
         //////////////////////////////////////////////////////////////////////////
+
+        //Select a random restaurant
+        ImageButton done = findViewById(R.id.main_doneButton);
+        done.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                Random r = new Random();
+                int size = DataStorage.queue.size()-1;
+                int i = r.nextInt(size);
+                DataStorage.listOfRestaurants.add(DataStorage.queue.get(i));
+                changeProfile(DataStorage.restaurantIndex);
+            }
+        });
     }
 
     @Override

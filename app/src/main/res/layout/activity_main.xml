@@ -214,10 +214,19 @@
                 tools:layout_editor_absoluteX="63dp"
                 tools:layout_editor_absoluteY="457dp" />
 
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
+
+            <ImageButton
+                android:id="@+id/main_doneButton"
+                style="@style/Base.TextAppearance.AppCompat.Button"
+                android:layout_width="64dp"
+                android:layout_height="32dp"
+                android:layout_marginTop="50dp"
+                android:scaleType="fitCenter"
+                android:visibility="visible"
+                app:srcCompat="@drawable/check_mark"
+                tools:layout_editor_absoluteX="260dp"
+                tools:layout_editor_absoluteY="457dp" />
+
 
             <ImageButton
                 android:id="@+id/main_resetButton"

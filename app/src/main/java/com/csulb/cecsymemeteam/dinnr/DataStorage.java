@@ -11,9 +11,11 @@ import java.util.Stack;
 public class DataStorage {
     private static boolean loggedIn = false;
     private static boolean beenGenerated = false;
+
     private static String loginName = "";
     private static Stack<RestaurantProfile> listOfRestaurants = new Stack<>();
     private static ArrayList<RestaurantProfile> queue = new ArrayList<>();
+
 
     public static void generateRestaurants(){
         if(!beenGenerated) {
@@ -22,6 +24,7 @@ public class DataStorage {
             listOfRestaurants.peek().generateGenericReviews();
 
             //Tacobell should have 4 reviews
+
             listOfRestaurants.push(new RestaurantProfile("Taco Bell", "6523 Flavor Town", "2.0 Miles", 3, R.drawable.innnout));
             listOfRestaurants.peek().generateGenericReviews();
             listOfRestaurants.peek().generateGenericReviews();
