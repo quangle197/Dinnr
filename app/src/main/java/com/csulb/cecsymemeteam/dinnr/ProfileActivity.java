@@ -32,13 +32,13 @@ public class ProfileActivity extends AppCompatActivity {
         LinearLayout restaurantImg = findViewById(R.id.profile_restaurantLayout);
         restaurantImg.setBackgroundResource(DataStorage.getRestaurant().getRefToImg());
         ImageView []setStar = {findViewById(R.id.profile_star1),findViewById(R.id.profile_star2),findViewById(R.id.profile_star3), findViewById(R.id.profile_star4), findViewById(R.id.profile_star5)};
-        for(int i = 0;i < DataStorage.getListOfRestaurants().get(DataStorage.restaurantIndex).getStarRating();i++)
+        for(int i = 0;i < DataStorage.getListOfRestaurants().peek().getStarRating();i++)
         {
             setStar[i].setImageResource(android.R.drawable.btn_star_big_on);
         }
-        if(DataStorage.getListOfRestaurants().get(DataStorage.restaurantIndex).getStarRating() <5)
+        if(DataStorage.getListOfRestaurants().peek().getStarRating() <5)
         {
-            for(int j=4;j>=DataStorage.getListOfRestaurants().get(DataStorage.restaurantIndex).getStarRating();j--)
+            for(int j=4; j>=DataStorage.getListOfRestaurants().peek().getStarRating(); j--)
             {
                 setStar[j].setImageResource(android.R.drawable.btn_star_big_off);
             }
