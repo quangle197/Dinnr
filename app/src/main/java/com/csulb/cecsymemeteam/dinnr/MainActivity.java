@@ -172,19 +172,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         //                      Profile Button Listeners                        //
         //////////////////////////////////////////////////////////////////////////
 
-        //Select a random restaurant
-        ImageButton done = findViewById(R.id.main_doneButton);
-        done.setOnClickListener(new View.OnClickListener() {
 
-            @Override
-            public void onClick(View view) {
-                Random r = new Random();
-                int size = DataStorage.queue.size()-1;
-                int i = r.nextInt(size);
-                DataStorage.listOfRestaurants.add(DataStorage.queue.get(i));
-                changeProfile(DataStorage.restaurantIndex);
-            }
-        });
     }
 
     @Override
