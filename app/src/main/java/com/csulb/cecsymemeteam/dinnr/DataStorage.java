@@ -1,5 +1,6 @@
 package com.csulb.cecsymemeteam.dinnr;
 
+import android.widget.ImageView;
 import android.widget.RemoteViews;
 
 import java.util.ArrayList;
@@ -9,8 +10,12 @@ import java.util.Stack;
     Lmao this is just a dummy class to hold all the runtime variables and makes it easier for activities to access them outside of doing troublesome stuff like using an actual database or using intents
  */
 public class DataStorage {
+    // Describes whether the user has logged in to the app and whether or not they have access to the favorites functionality
     private static boolean loggedIn = false;
+    // Describes whether the list of restaurants has already been generated
     private static boolean beenGenerated = false;
+    // Describes whether or not the reset button has been used to select a restaurant already
+    private static boolean restaurantSeleccted = false;
     private static String loginName = "";
     private static Stack<RestaurantProfile> listOfRestaurants = new Stack<>();
     private static ArrayList<RestaurantProfile> queue = new ArrayList<>();
@@ -109,5 +114,13 @@ public class DataStorage {
 
     public static void setBeenGenerated(boolean beenGenerated) {
         DataStorage.beenGenerated = beenGenerated;
+    }
+
+    public static boolean isRestaurantSeleccted() {
+        return restaurantSeleccted;
+    }
+
+    public static void setRestaurantSeleccted(boolean restaurantSeleccted) {
+        DataStorage.restaurantSeleccted = restaurantSeleccted;
     }
 }
