@@ -45,10 +45,38 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         Menu nav_menu = navigationView.getMenu();
+
+        //////////////////////////////////////////////////////////////////////////
+        //                       reset Button Listeners                         //
+        //////////////////////////////////////////////////////////////////////////
+        final ImageButton reset =(ImageButton) findViewById(R.id.main_resetButton);
+        reset.setEnabled(false);
+        reset.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                if(!DataStorage.getQueue().isEmpty()){
+                    DataStorage.getListOfRestaurants().clear();
+                    DataStorage.getListOfRestaurants().add(DataStorage.getQueue().get((int)(Math.random() * DataStorage.getQueue().size())));   //in line coding, the best coding :^)`
+                    DataStorage.getQueue().clear();
+                    gotoProfile(findViewById(R.id.main_resetButton));
+                    // Moves them to the profile screen
+                }
+                else if(DataStorage.getListOfRestaurants().isEmpty()){
+                    DataStorage.setBeenGenerated(false);
+                    DataStorage.generateRestaurants();
+                    reset.setEnabled(false);
+                }
+                updateProfile();
+            }
+        });
+        //////////////////////////////////////////////////////////////////////////
+        //                       reset Button Listeners                         //
+        //////////////////////////////////////////////////////////////////////////
+
         //////////////////////////////////////////////////////////////////////////
         //                      profile Plaque Listeners                        //
         //////////////////////////////////////////////////////////////////////////
-
         if(DataStorage.isLoggedIn()) {
             nav_menu.findItem(R.id.Account).setVisible(true);
             nav_menu.findItem(R.id.newAccount).setVisible(false);
@@ -61,6 +89,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             {
                 if(!DataStorage.getListOfRestaurants().empty()) {
                     DataStorage.getQueue().add(DataStorage.getListOfRestaurants().pop());
+                    reset.setEnabled(true);
                 }
                 updateProfile();
             }
@@ -68,6 +97,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             {
                 if(!DataStorage.getListOfRestaurants().empty()) {
                     DataStorage.getListOfRestaurants().pop();
+                    if(DataStorage.getListOfRestaurants().empty()){
+                        reset.setEnabled(true);
+                    }
                 }
                 updateProfile();
             }
@@ -86,37 +118,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             public void onClick(View view) {
                 if(!DataStorage.getListOfRestaurants().empty()) {
                     DataStorage.getQueue().add(DataStorage.getListOfRestaurants().pop());
+                    reset.setEnabled(true);
                 }
                 updateProfile();
             }
         });
         //////////////////////////////////////////////////////////////////////////
         //                        like Button Listeners                         //
-        //////////////////////////////////////////////////////////////////////////
-
-        //////////////////////////////////////////////////////////////////////////
-        //                       reset Button Listeners                         //
-        //////////////////////////////////////////////////////////////////////////
-        ImageButton reset =(ImageButton) findViewById(R.id.main_resetButton);
-        reset.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View view) {
-                if(!DataStorage.getQueue().isEmpty()){
-                    DataStorage.getListOfRestaurants().clear();
-                    DataStorage.getListOfRestaurants().add(DataStorage.getQueue().get((int)(Math.random() * DataStorage.getQueue().size())));   //in line coding, the best coding :^)`
-                    DataStorage.getQueue().clear();
-                }
-                else{
-                    DataStorage.getListOfRestaurants().clear();
-                    DataStorage.setBeenGenerated(false);
-                    DataStorage.generateRestaurants();
-                }
-                updateProfile();
-            }
-        });
-        //////////////////////////////////////////////////////////////////////////
-        //                       reset Button Listeners                         //
         //////////////////////////////////////////////////////////////////////////
 
         //////////////////////////////////////////////////////////////////////////
@@ -129,6 +137,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             public void onClick(View view) {
                 if(!DataStorage.getListOfRestaurants().empty()) {
                     DataStorage.getListOfRestaurants().pop();
+                    if(DataStorage.getListOfRestaurants().empty()){
+                        reset.setEnabled(true);
+                    }
                 }
                 updateProfile();
             }
@@ -147,6 +158,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             {
                 if(!DataStorage.getListOfRestaurants().empty()) {
                     DataStorage.getQueue().add(DataStorage.getListOfRestaurants().pop());
+                    reset.setEnabled(true);
                 }
                 updateProfile();
             }
@@ -154,6 +166,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             {
                 if(!DataStorage.getListOfRestaurants().empty()) {
                     DataStorage.getListOfRestaurants().pop();
+                    if(DataStorage.getListOfRestaurants().empty()){
+                        reset.setEnabled(true);
+                    }
                 }
                 updateProfile();
             }
