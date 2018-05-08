@@ -22,6 +22,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.sql.DatabaseMetaData;
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout mDrawerLayout;
@@ -101,6 +102,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             {
                 if(!DataStorage.getListOfRestaurants().empty() && !DataStorage.isRestaurantSeleccted()) {
                     DataStorage.getQueue().add(DataStorage.getListOfRestaurants().pop());
+
                 }
                 updateProfile();
             }
@@ -195,6 +197,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         //////////////////////////////////////////////////////////////////////////
         //                      Profile Button Listeners                        //
         //////////////////////////////////////////////////////////////////////////
+
+
     }
 
     @Override
