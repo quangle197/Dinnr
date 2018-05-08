@@ -52,7 +52,14 @@ public class ProfileActivity extends AppCompatActivity {
         temp.setText(DataStorage.getRestaurant().getDistance());
 
         temp = findViewById(R.id.profile_addressTxt);
-        temp.setText(DataStorage.getRestaurant().address);
+        String addressSnip = DataStorage.getRestaurant().address;
+        for(int i = 0; i < addressSnip.length(); i++){
+            if(addressSnip.charAt(i) == ','){
+                addressSnip = addressSnip.substring(0, i);
+                break;
+            }
+        }
+        temp.setText(addressSnip);
 
     }
 
