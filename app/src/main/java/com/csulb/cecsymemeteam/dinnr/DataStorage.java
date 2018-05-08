@@ -23,22 +23,22 @@ public class DataStorage {
     public static void generateRestaurants(){
         if(!beenGenerated) {
             //Mcdonalds should have 2 reviews
-            listOfRestaurants.push(new RestaurantProfile("Mcdonalds", "420 Blaze Street", "0.5 Miles", 4, R.drawable.mcdonalds));
+            listOfRestaurants.push(new RestaurantProfile("Mcdonalds", "2290 N Bellflower Blvd, Long Beach, CA 90815", "0.5 Miles", 4, R.drawable.mcdonalds));
             listOfRestaurants.peek().generateGenericReviews();
 
             //Tacobell should have 4 reviews
-            listOfRestaurants.push(new RestaurantProfile("Taco Bell", "6523 Flavor Town", "2.0 Miles", 3, R.drawable.innnout));
+            listOfRestaurants.push(new RestaurantProfile("Taco Bell", "6407 Stearns St, Long Beach, CA 90815", "2.0 Miles", 3, R.drawable.innnout));
             listOfRestaurants.peek().generateGenericReviews();
             listOfRestaurants.peek().generateGenericReviews();
 
             //Inn and out should have 3 reviews
-            listOfRestaurants.push(new RestaurantProfile("Inn N Out", "2102 Lazy Ave", "0.2 Miles", 5, R.drawable.tacobell));
+            listOfRestaurants.push(new RestaurantProfile("Inn N Out", "4600 E Los Coyotes Diagonal, Long Beach, CA 90815", "0.2 Miles", 5, R.drawable.tacobell));
             listOfRestaurants.peek().generateGenericReviews();
             listOfRestaurants.peek().generateGenericReviews();
             listOfRestaurants.peek().generateGenericReviews();
 
             //Subway
-            listOfRestaurants.push(new RestaurantProfile("Subway", "1225 Sub Way", "0.4 Miles", 4, R.drawable.subway));
+            listOfRestaurants.push(new RestaurantProfile("Subway", "1212 N Bellflower Blvd, Long Beach, CA 90815", "0.4 Miles", 4, R.drawable.subway));
             listOfRestaurants.peek().generateGenericReviews();
             listOfRestaurants.peek().generateGenericReviews();
             listOfRestaurants.peek().generateGenericReviews();
@@ -46,23 +46,23 @@ public class DataStorage {
 
 
             //KFC
-            listOfRestaurants.push(new RestaurantProfile("KFC", "6432 Blackstone Dr", "1.4 Miles", 2, R.drawable.kfc));
+            listOfRestaurants.push(new RestaurantProfile("KFC", "2970 N Bellflower Blvd, Long Beach, CA 90815", "1.4 Miles", 2, R.drawable.kfc));
             listOfRestaurants.peek().generateGenericReviews();
             listOfRestaurants.peek().generateGenericReviews();
 
             //Burger King
-            listOfRestaurants.push(new RestaurantProfile("Burger King", "422 Blaze Street", "0.5 Miles", 4, R.drawable.burger_king));
+            listOfRestaurants.push(new RestaurantProfile("Burger King", "2955 N Bellflower Blvd, Long Beach, CA 90815", "0.5 Miles", 4, R.drawable.burger_king));
             listOfRestaurants.peek().generateGenericReviews();
 
             //Pizza Hut
-            listOfRestaurants.push(new RestaurantProfile("Pizza Hut", "68 Rando Road", "0.8 Miles", 3, R.drawable.pizza_hut));
+            listOfRestaurants.push(new RestaurantProfile("Pizza Hut", "4502 Los Coyotes Rd, Long Beach, CA 90815", "0.8 Miles", 3, R.drawable.pizza_hut));
             listOfRestaurants.peek().generateGenericReviews();
             listOfRestaurants.peek().generateGenericReviews();
             listOfRestaurants.peek().generateGenericReviews();
 
 
             //Starbucks
-            listOfRestaurants.push(new RestaurantProfile("Starbucks", "19943 White Ave", "1.1 Miles", 4, R.drawable.starbucks));
+            listOfRestaurants.push(new RestaurantProfile("Starbucks", "6049 E 7th St, Long Beach, CA 90840", "1.1 Miles", 4, R.drawable.starbucks));
             listOfRestaurants.peek().generateGenericReviews();
             beenGenerated = true;
         }

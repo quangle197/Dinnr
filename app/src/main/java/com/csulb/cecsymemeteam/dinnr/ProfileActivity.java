@@ -75,7 +75,7 @@ public class ProfileActivity extends AppCompatActivity {
     }
 
     public void directToMaps(View v){
-        String url = "https://www.google.com/maps/dir/?api=1";
+        String url = "https://www.google.com/maps/dir/?api=1&origin=Current+Location";
         String temp = DataStorage.getRestaurant().address;
         for(int i = 0; i < temp.length(); i++){
             if(temp.charAt(i) == ' '){
@@ -86,8 +86,7 @@ public class ProfileActivity extends AppCompatActivity {
             }
         }
         url += "&destination=" + temp;
-        Intent browserIntent = new Intent(Intent.ACTION_VIEW,
-                Uri.parse(url));
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
         startActivity(browserIntent);
     }
 
